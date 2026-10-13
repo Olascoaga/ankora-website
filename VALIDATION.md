@@ -173,3 +173,14 @@ intercepts/aborts the external image before transmission. Test traffic is not
 used to inflate visitor statistics. Raw creation evidence, layout captures and
 browser results remain in ignored `.qa/`. Public source contains only a public
 counter identifier, never access credentials or private memory.
+
+**Live publication:** implementation commit
+`dac4aabeef53e882cce2a286bb232bb696110d99` was pushed to the independent website
+repository. [Pages run 38485357510](https://github.com/Olascoaga/ankora-website/actions/runs/38485357510)
+completed successfully. The existing in-app browser reopened the public
+[Spanish visitor footer](https://olascoaga.github.io/ankora-website/?lang=es#visitors).
+The real provider image loaded at its native **800×375** size and rendered at
+**684 px** width, with the map, provider count, statistics link and Spanish
+disclosure visible. The public widget is not the local layout fixture. Its
+observed setup tally is not an acceptance expectation or community-adoption
+claim. A cropped live-footer screenshot is retained privately in `.qa/`.
