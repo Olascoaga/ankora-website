@@ -1,9 +1,13 @@
 # Ankora website
 
+[![Publish website](https://github.com/Olascoaga/ankora-website/actions/workflows/pages.yml/badge.svg)](https://github.com/Olascoaga/ankora-website/actions/workflows/pages.yml)
+
 Independent, buildless presentation website prepared for GitHub Pages.
 The scientific application's repository remains [Olascoaga/Ankora](https://github.com/Olascoaga/Ankora).
-This checkout is a local draft: no GitHub repository or public website has been
-created, no domain has been purchased, and no beta installer is distributed here.
+The official presentation is live at [olascoaga.github.io/ankora-website](https://olascoaga.github.io/ankora-website/)
+with a [Spanish version](https://olascoaga.github.io/ankora-website/?lang=es).
+Source is maintained separately at [Olascoaga/ankora-website](https://github.com/Olascoaga/ankora-website).
+No domain has been purchased and no beta installer is distributed here.
 
 ## Content
 
@@ -48,17 +52,16 @@ Playwright browser channel; `ANKORA_WEBSITE_URL` selects the local preview URL.
 The helper also accepts `--playwright-module` for an existing development
 installation. Screenshots and raw evidence go to ignored `.qa/`, not the deploy.
 
-## GitHub Pages publication — not performed yet
+## GitHub Pages publication
 
-Recommended destination: a separate public repository named `ankora-website`
-under the `Olascoaga` account. The owner must authorize creation/publication.
+The owner authorized this public repository and Pages deployment on
+13 October 2026. **Settings → Pages → Source → GitHub Actions** is enabled.
+Each push to `main` checks the website and publishes **only `dist/`**.
+The workflow may also be launched manually from Actions.
 
-1. Create that repository without an initial README/license, preserving this local history.
-2. Configure **Settings → Pages → Source → GitHub Actions**.
-3. Add the new repository as this checkout's remote and push `main`.
-4. The supplied Pages workflow checks the site and publishes **only `dist/`**.
-   Once successful, GitHub reports the actual site URL. The expected project-site
-   address is `https://olascoaga.github.io/ankora-website/`; this is not a live-link claim.
+The first successful deployment used source `f1c632d51dbcf5cf6e229f1b69fa4f13bb7079ef`.
+See [VALIDATION.md](VALIDATION.md) for the actual deployment and live-site checks.
+The website does not depend on the local preview server or the scientific backend.
 
 For a custom domain, verify ownership and configure the domain and DNS in Pages
 before enabling HTTPS. No placeholder `CNAME`, canonical domain or invented live

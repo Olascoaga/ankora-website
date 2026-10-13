@@ -3,8 +3,11 @@
 ## Boundary
 
 Presentation website for Ankora, prepared separately from the scientific app.
-No deployment, new GitHub repository, domain purchase, release, public installer
-upload, research-data mutation or scientific calculation was performed.
+Initial local acceptance did not create a GitHub repository or deploy a website.
+The owner subsequently authorized public website publication on 13 October 2026;
+the separate acceptance below records that deployment. No domain purchase,
+application release, public installer upload, research-data mutation or scientific
+calculation was performed.
 
 The Sites design/local-preview guidance shaped the visitor narrative, responsive
 composition and verification. The owner-selected destination remains GitHub
@@ -49,14 +52,45 @@ was invented. MIT is the code's license; third-party obligations remain separate
 ## Publication and limitations
 
 `.github/workflows/pages.yml` publishes only `dist/` after checks, using the
-official Pages workflow shape with job-bounded permissions. This file was not
-executed against GitHub; it requires an authorized repository and Pages setup.
-No claim is made for deployed DNS/HTTPS, cross-browser acceptance, assistive-
-technology testing or physical mobile devices. The current browser cases are
+official Pages workflow shape with job-bounded permissions. Remote execution is
+recorded below; the initial local gate alone did not prove it. No claim is made
+for a custom domain, cross-browser acceptance, assistive-technology testing or
+physical mobile devices. The current browser cases are
 responsive viewport tests on Windows, not a real-device matrix.
 
 The PDF and the linked public-source repository are immediately usable. Contact
 opens the owner's existing public email; it does not simulate a subscription or
 automatic beta admission. Installer distribution remains private. The final
-domain, canonical/social-image URLs and any public release link require owner
-decisions before publication.
+custom domain and any public installer release link require separate owner
+decisions.
+
+## Authorized public deployment — 13 October 2026
+
+- Separate public repository: [Olascoaga/ankora-website](https://github.com/Olascoaga/ankora-website).
+  Only the 22 reviewed website source/assets files were pushed. Private memory,
+  audits, application data, installer binaries and local QA are not tracked.
+- Published URL: [https://olascoaga.github.io/ankora-website/](https://olascoaga.github.io/ankora-website/).
+  GitHub Pages uses `build_type: workflow` and enforces HTTPS.
+- Initial published source: `f1c632d51dbcf5cf6e229f1b69fa4f13bb7079ef`.
+  [Workflow run 38478850971](https://github.com/Olascoaga/ankora-website/actions/runs/38478850971)
+  completed **successfully on attempt 2**. Attempt 1 failed at Pages configuration
+  because the push started before Pages enablement; no source test defect was
+  concealed or waived. The same commit was rerun after enablement.
+- The live root page returns **HTTP 200**. Microsoft Edge **155.0.4283.45** checks
+  pass at **1440×1000, 1366×768 and 390×844**, in both English and Spanish:
+  all four gallery stages load, including Prepare and Define; no horizontal
+  document overflow, page errors or failed resource responses occur.
+- All **11 public content assets** (HTML, CSS, JS, brand SVG, source manifest,
+  five screenshots and guide PDF) return successfully and match the reviewed
+  local bytes exactly. The public guide retains its original SHA-256
+  `a1065e0feb4de038e5d9de462a52d63e4b25b943a746bfb1c8eb1838793ae24e`.
+- Local static checks and all **11 Node tests** also pass immediately before
+  publication. Raw live-browser evidence remains in ignored `.qa/`, not Pages.
+- The scientific application remains at source `70ad0403d9f4a8a5db474213529e550a06d17c10`;
+  its repository, scientific outputs and accepted installers were not modified.
+
+The Actions environment reported Node 20 action-runtime deprecation notices
+for the existing setup/configure actions, automatically using Node 24. These
+notices did not fail the successful run; the explicit site-check runtime is
+Node 22. Ubuntu-runner migration notices are infrastructure notices, not
+scientific-validation evidence.
