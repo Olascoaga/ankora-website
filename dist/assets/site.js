@@ -46,7 +46,14 @@ const spanish = {
   faq4: "¿Qué significa código abierto aquí?", answer4: "El código de Ankora está disponible bajo licencia MIT. Los componentes de terceros incluidos conservan sus propias licencias, avisos y obligaciones de código fuente. Cita el software y las herramientas usados al publicar investigación.",
   footerCopy: "Docking molecular, con el científico al mando.", reportIssue: "Reportar un problema", license: "Licencia", contact: "Contacto", footerNote: "Software local. Métodos abiertos.\nLas decisiones científicas son tuyas.", actualScreenshot: "Interfaz real de Ankora", close: "Cerrar",
 };
-const english = Object.fromEntries([...document.querySelectorAll("[data-i18n]")].map(node => [node.dataset.i18n, node.innerText]));
+function originalText(node) {
+  // Closed disclosures have no rendered innerText. Read the source, retaining
+  // intentional line breaks, before switching languages without changing it.
+  const copy = node.cloneNode(true);
+  for (const br of copy.querySelectorAll("br")) br.replaceWith("\n");
+  return copy.textContent;
+}
+const english = Object.fromEntries([...document.querySelectorAll("[data-i18n]")].map(node => [node.dataset.i18n, originalText(node)]));
 for (const node of document.querySelectorAll("[data-alt-i18n]")) english[node.dataset.altI18n] = node.alt;
 for (const node of document.querySelectorAll("[data-label-i18n]")) english[node.dataset.labelI18n] ??= node.getAttribute("aria-label");
 const stages = {

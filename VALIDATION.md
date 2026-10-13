@@ -94,3 +94,32 @@ for the existing setup/configure actions, automatically using Node 24. These
 notices did not fail the successful run; the explicit site-check runtime is
 Node 22. Ubuntu-runner migration notices are infrastructure notices, not
 scientific-validation evidence.
+
+## FAQ correction — 13 October 2026
+
+The owner reported the private-beta/FAQ section did not work. A read-only
+reproduction on the published site confirmed that all four English disclosures
+opened with **empty answers**; the Spanish answers remained present. The original
+browser gate checked the first disclosure's `open` attribute, not its answer
+content. Its earlier passing result did not cover this failure.
+
+The language initializer used rendered `innerText` to capture English strings
+from initially closed `details` elements. Those answer paragraphs had no rendered
+text. It now reads source text from a detached clone, converting `br` to newlines
+before language replacement. This preserves hidden answers and the intended
+multiline headings without injected HTML, new dependencies or custom accordion
+handlers. Native `details` semantics and the existing contact link remain intact.
+
+The expanded browser regression **failed before the fix** on the first English
+answer. After the fix, static checks and **12 Node tests pass**. Edge
+**155.0.4283.45** passes all **14 viewport/language cases and eight interaction
+checks**, now opening and closing **all four answers** in each case, verifying
+their visible nonempty text and exact English source content. EN → ES → EN
+restores the original answers and multiline beta heading; Enter/Space keyboard
+disclosure and the no-JavaScript English fallback also pass. There are no page
+errors, broken images, failed responses or horizontal document overflow.
+
+The beta inquiry remains a `mailto:` link, which depends on the visitor's
+configured email application; it is not a hosted signup or automatic admission.
+No email was sent, installer published or scientific application modified.
+Raw browser evidence stays in ignored `.qa/`.

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { resolve } from "node:path";
 const moduleIndex = process.argv.indexOf("--playwright-module");
@@ -8,6 +8,9 @@ const { chromium } = await import(library);
 const base = process.env.ANKORA_WEBSITE_URL || "http://127.0.0.1:4175/";
 assert(new URL(base).hostname === "127.0.0.1", "This acceptance gate is local-only");
 const output = fileURLToPath(new URL("../.qa/", import.meta.url));
+const sourceHtml = await readFile(new URL("../dist/index.html", import.meta.url), "utf8");
+const englishAnswers = [...sourceHtml.matchAll(/<p data-i18n="answer\d">([^<]+)<\/p>/g)].map(match => match[1]);
+assert.equal(englishAnswers.length, 4);
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ channel: process.env.ANKORA_BROWSER_CHANNEL || "msedge", headless: true });
 const evidence = { passed: false, browser: browser.version(), errors: [], failed_requests: [], viewports: [], interactions: [] };
@@ -24,6 +27,27 @@ try {
     const broken = await page.locator("img").evaluateAll(images => images.filter(image => !image.complete || image.naturalWidth === 0).map(image => image.getAttribute("src")));
     assert.deepEqual(broken, []);
   }
+  async function checkFaq(targetPage, expected = null) {
+    const items = targetPage.locator(".faq details");
+    assert.equal(await items.count(), 4);
+    const answers = [];
+    for (let i = 0; i < 4; i++) {
+      const item = items.nth(i), summary = item.locator("summary"), answer = item.locator("p");
+      assert.equal(await item.getAttribute("open"), null);
+      await summary.click();
+      assert.notEqual(await item.getAttribute("open"), null);
+      assert(await answer.isVisible());
+      const text = await answer.innerText();
+      assert(text.length > 80, `FAQ answer ${i + 1} must not be blank or truncated`);
+      if (expected) assert.equal(text, expected[i]);
+      answers.push(text);
+      assert.equal(await targetPage.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+      await summary.click();
+      assert.equal(await item.getAttribute("open"), null);
+      assert(!(await answer.isVisible()));
+    }
+    return answers;
+  }
   for (const [width, height] of [[1440, 1000], [1280, 800], [960, 680], [768, 1024], [390, 844], [360, 780], [320, 640]]) {
     await page.setViewportSize({ width, height });
     for (const lang of ["en", "es"]) {
@@ -32,6 +56,7 @@ try {
       assert.equal(await page.locator("html").getAttribute("lang"), lang);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px ${lang} has horizontal overflow`);
       assert.equal(await page.getByRole("heading", { level: 1 }).count(), 1);
+      await checkFaq(page, lang === "en" ? englishAnswers : null);
       for (const stage of ["inspect", "prepare", "define", "review"]) {
         await page.locator(`#tab-${stage}`).click();
         await ready();
@@ -44,7 +69,7 @@ try {
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({ path: resolve(output, `site-${width}-${lang}.png`), fullPage: true });
       if (width === 1440 && lang === "en") await page.screenshot({ path: resolve(output, "hero-desktop.png") });
-      evidence.viewports.push({ width, height, language: lang, images_loaded: true, gallery_stages: 4, horizontal_overflow: false });
+      evidence.viewports.push({ width, height, language: lang, images_loaded: true, gallery_stages: 4, faq_answers: 4, horizontal_overflow: false });
     }
   }
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -69,8 +94,12 @@ try {
   await page.locator('[data-lang="es"]').click();
   assert.equal(await page.locator("html").getAttribute("lang"), "es");
   assert(new URL(page.url()).searchParams.get("lang") === "es");
+  const spanishAnswers = await checkFaq(page);
+  assert(spanishAnswers.every((answer, index) => answer !== englishAnswers[index]));
   await page.locator('[data-lang="en"]').click();
   assert.equal(await page.locator("html").getAttribute("lang"), "en");
+  await checkFaq(page, englishAnswers);
+  assert.equal(await page.locator("#beta-title").innerText(), "Built for real work.\nBeing tested with care.");
   evidence.interactions.push("language switching and shareable query");
   await page.setViewportSize({ width: 390, height: 844 });
   const menu = page.locator("[data-js-menu]");
@@ -83,9 +112,14 @@ try {
   await page.locator('#site-nav a[href="#resources"]').click();
   assert.equal(await menu.getAttribute("aria-expanded"), "false");
   evidence.interactions.push("mobile navigation and Escape");
-  await page.locator(".faq details").first().locator("summary").click();
+  const faqSummary = page.locator(".faq details").first().locator("summary");
+  await faqSummary.focus();
+  await faqSummary.press("Enter");
   assert.notEqual(await page.locator(".faq details").first().getAttribute("open"), null);
-  evidence.interactions.push("native FAQ disclosure");
+  assert.equal(await page.locator(".faq details").first().locator("p").innerText(), englishAnswers[0]);
+  await faqSummary.press("Space");
+  assert.equal(await page.locator(".faq details").first().getAttribute("open"), null);
+  evidence.interactions.push("all FAQ answers, language round-trip and keyboard disclosure");
   const pdf = await page.request.get(`${base}assets/Ankora-User-Guide.pdf`);
   assert(pdf.ok());
   assert((await pdf.body()).subarray(0, 5).toString() === "%PDF-");
@@ -101,6 +135,7 @@ try {
   assert(await fallback.locator("#site-nav").isVisible());
   assert.equal(await fallback.locator('[data-js-menu]').isVisible(), false);
   assert.equal(await fallback.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+  await checkFaq(fallback, englishAnswers);
   await disabledJS.close();
   evidence.interactions.push("no-JavaScript content and navigation fallback");
   assert.deepEqual(evidence.errors, []);
