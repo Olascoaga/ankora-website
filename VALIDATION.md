@@ -183,4 +183,4 @@ The real provider image loaded at its native **800×375** size and rendered at
 **684 px** width, with the map, provider count, statistics link and Spanish
 disclosure visible. The public widget is not the local layout fixture. Its
 observed setup tally is not an acceptance expectation or community-adoption
-claim. A cropped live-footer screenshot is retained privately in `.qa/`.
+claim. A live-footer screenshot is retained privately in `.qa/`.
