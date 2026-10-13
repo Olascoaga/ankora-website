@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-13",
+  "upstream_repository": "https://github.com/Olascoaga/Ankora",
+  "upstream_commit": "70ad0403d9f4a8a5db474213529e550a06d17c10",
+  "distribution": "unsigned private beta; no public installer on this website",
+  "assets": [
+    {"file":"assets/guide02-structure.jpg","upstream":"docs/images/guide02-structure.jpg","sha256":"12ff4efd810938a8eb397d9ff4b6c560e381b8e4210c2e50eb15d2e0aa277382","size_bytes":158624},
+    {"file":"assets/guide03-receptor.jpg","upstream":"docs/images/guide03-receptor.jpg","sha256":"060af97c82e5f1b2b172d32ddd6e36135756ec46e228df63eca7fd9a7a9ea7f5","size_bytes":212111},
+    {"file":"assets/guide06-binding-site.jpg","upstream":"docs/images/guide06-binding-site.jpg","sha256":"abbe1328acfdc91178843cca67938fed3f6502bfd30f08ecc5f80938281b4f00","size_bytes":143489},
+    {"file":"assets/guide11-interactions.jpg","upstream":"docs/images/guide11-interactions.jpg","sha256":"d0554e2dfffec304f636f13699e3e936ea5941e99bd3af22b2d4b402425bf256","size_bytes":173043},
+    {"file":"assets/guide19-library-filters.jpg","upstream":"docs/images/guide19-library-filters.jpg","sha256":"381ac6219fdedef8aeadd364b89352d8e69693c28ad4eb45d0a4fd09e7ba55f6","size_bytes":40752},
+    {"file":"assets/Ankora-User-Guide.pdf","upstream":"docs/Ankora-User-Guide.pdf","sha256":"a1065e0feb4de038e5d9de462a52d63e4b25b943a746bfb1c8eb1838793ae24e","size_bytes":2263968}
+  ],
+  "capability_sources": ["README.md", "docs/USER_GUIDE.md", "docs/validation/USER_GUIDE_7AQF_2026-10-09.md", "docs/validation/PRIVATE_BETA_RECEPTOR_RECOVERY_INSTALLER_2026-10-13.md", "CITATION.cff", "LICENSE"],
+  "science_sources": ["docs/validation/VALIDATION_STATUS.json", "docs/validation/reference_cases/SERPINE1_7AQF_RV2.md", "docs/validation/reference_cases/PIK3CD_6OCO_M5V_RESULTS.md", "docs/validation/LIT_PCBA_VINA_PRIMARY_METRICS_2026-09-28.md"],
+  "scientific_boundary": "Recorded cases do not establish experimental affinity, biological activity, prospective screening performance or cross-target generality. No unfavorable result is omitted to imply universal validation."
+}
