@@ -41,10 +41,18 @@ const spanish = {
   betaCopy: "Actualmente Ankora se comparte con testers invitados en Windows 11 x64. El instalador completo incluye el entorno científico y las herramientas soportadas; todavía no hay un instalador público.",
   betaAction: "Consultar sobre la beta", betaNote: "La beta no tiene firma digital. Sigue la política de software de tu institución; no desactives la seguridad del sistema. Los controladores GPU son responsabilidad del fabricante.",
   faq1: "¿Necesito instalar Python o Java?", answer1: "No para el instalador completo de la beta. Incluye un entorno Python científico privado, Java, herramientas de preparación, motores de docking, P2Rank y WebView2 offline. Descargar estructuras públicas sí requiere internet.",
-  faq2: "¿Mi investigación sale de mi computadora?", answer2: "La preparación y el docking se ejecutan localmente. Ankora no tiene telemetría ni subidas automáticas a la nube. Obtener una estructura de RCSB o AlphaFold es una acción de red explícita. Esta web no contiene scripts de analítica ni rastreo.",
+  faq2: "¿Mi investigación sale de mi computadora?", answer2: "La preparación y el docking se ejecutan localmente. Ankora no tiene telemetría ni subidas automáticas a la nube. Obtener una estructura de RCSB o AlphaFold es una acción de red explícita. Por separado, esta web utiliza un contador de visitas externo, explicado al pie; no recibe datos científicos de la aplicación.",
   faq3: "¿Existe una versión para Linux o macOS?", answer3: "Todavía no hay una versión aceptada. Windows 11 x64 es la plataforma de referencia de la beta. Otras plataformas deben superar sus propias comprobaciones científicas y de empaquetado antes de afirmar soporte.",
   faq4: "¿Qué significa código abierto aquí?", answer4: "El código de Ankora está disponible bajo licencia MIT. Los componentes de terceros incluidos conservan sus propias licencias, avisos y obligaciones de código fuente. Cita el software y las herramientas usados al publicar investigación.",
   footerCopy: "Docking molecular, con el científico al mando.", reportIssue: "Reportar un problema", license: "Licencia", contact: "Contacto", footerNote: "Software local. Métodos abiertos.\nLas decisiones científicas son tuyas.", actualScreenshot: "Interfaz real de Ankora", close: "Cerrar",
+  visitorsEyebrow: "SITIO WEB / VISITAS", visitorsTitle: "De dónde llegan las visitas.",
+  visitorsCopy: "Visitas registradas y países aproximados, proporcionados por Flag Counter. El conteo comenzó el 13 de octubre de 2026; no incluye las visitas anteriores.",
+  visitorsLimit: "Las vistas cuentan cargas de la imagen; el proveedor deduplica visitantes por día. No son descargas, usuarios de Ankora ni ubicaciones exactas. Incluye comprobaciones de configuración y puede tardar unos cinco minutos en actualizarse.",
+  visitorPrivacyTitle: "Acerca de la privacidad de las visitas",
+  visitorPrivacyCopy: "Cargar esta imagen envía tu IP e información del navegador a Flag Counter (Boardhost), que estima el país sin GPS. Según su política, el contador gratuito no utiliza cookies, no registra las IP originales y publica totales agregados; utiliza temporalmente un hash derivado de la IP para evitar duplicados. Solo mide visitas a la web, no datos científicos de la aplicación.",
+  visitorPrivacyLimits: "Las VPN, redes compartidas, bloqueadores y cachés pueden afectar estos conteos aproximados. Las páginas de estadísticas del proveedor pueden contener publicidad y cookies.",
+  visitorPrivacyLink: "Leer la política de privacidad del proveedor ↗", visitorStatistics: "Abrir las estadísticas completas de visitas ↗",
+  visitorUnavailable: "No se pudo cargar el mapa de visitas. Tu navegador puede bloquearlo o el proveedor puede no estar disponible. Aún puedes abrir sus estadísticas abajo.",
 };
 function originalText(node) {
   // Closed disclosures have no rendered innerText. Read the source, retaining
@@ -140,4 +148,11 @@ dialog.addEventListener("click", event => {
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
 });
 for (const node of document.querySelectorAll("[data-js-menu], [data-js-languages]")) node.hidden = false;
+const visitorImage = document.querySelector("#visitor-widget img");
+function visitorUnavailable() {
+  document.querySelector("#visitor-widget").hidden = true;
+  document.querySelector("#visitor-unavailable").hidden = false;
+}
+visitorImage.addEventListener("error", visitorUnavailable);
+if (visitorImage.complete && visitorImage.naturalWidth === 0) visitorUnavailable();
 setLanguage(language);

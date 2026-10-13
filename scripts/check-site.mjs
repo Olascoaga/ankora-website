@@ -30,6 +30,10 @@ export async function checkSite() {
   }
   await inspect(dist);
   const manifest = JSON.parse(await readFile(resolve(dist, "assets/content-evidence.json"), "utf8"));
+  const externalImages = [...html.matchAll(/<img\b[^>]*\bsrc="(https:[^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(externalImages, [manifest.visitor_counter.image_url], "Only the approved counter image may measure visits");
+  assert.equal(new URL(manifest.visitor_counter.image_url).hostname, "s05.flagcounter.com");
+  assert(!/<script\b[^>]*\bsrc="https:/i.test(html), "No third-party executable scripts");
   for (const asset of manifest.assets) {
     const path = resolve(dist, asset.file);
     assert(path.startsWith(dist + sep), "Evidence path escaped static directory");
@@ -43,7 +47,7 @@ export async function checkSite() {
     assert(!/(?<![A-Za-z0-9])[A-Z]:[\\/]/i.test(text), "No absolute filesystem paths in public text");
     assert(!/127\.0\.0\.1:8765|\.ankora-data|\.claude|memory\//i.test(text), "No private runtime references");
   }
-  assert(!/innerHTML|eval\(|fetch\(|localStorage|document\.cookie/.test(js), "Presentation must not execute injected markup or collect data");
+  assert(!/innerHTML|eval\(|fetch\(|localStorage|document\.cookie/.test(js), "Only the disclosed image counter may measure visits; no injected markup, extra data collection or cookies");
   assert(html.includes("there is no public installer release yet"));
   assert(css.includes("prefers-reduced-motion"));
   console.log(`Website checks passed: ${files} static files, ${(bytes / 1024 / 1024).toFixed(2)} MiB; all assets and anchors resolve.`);

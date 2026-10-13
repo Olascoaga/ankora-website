@@ -4,6 +4,17 @@
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
   "upstream_commit": "70ad0403d9f4a8a5db474213529e550a06d17c10",
   "distribution": "unsigned private beta; no public installer on this website",
+  "visitor_counter": {
+    "provider": "Flag Counter / Boardhost",
+    "created_on": "2026-10-13",
+    "counter_id": "0hUE",
+    "image_url": "https://s05.flagcounter.com/map/0hUE/size_l/txt_173F37/border_E4EBDF/pageviews_1/viewers_0/flags_0/",
+    "statistics_url": "https://info.flagcounter.com/0hUE",
+    "privacy_url": "https://www.flagcounter.com/privacy.html",
+    "terms_url": "https://www.flagcounter.com/terms.html",
+    "boundary": "Approximate aggregate website visits from creation onward, including setup checks; not downloads, software adoption, exact location or historical traffic. No desktop research data is sent.",
+    "privacy": "External image receives visitor IP and browser information. Provider describes no widget cookies or raw-IP logs, temporary IP-derived deduplication, and public aggregate counts. Provider statistics pages may contain advertising/cookies."
+  },
   "assets": [
     {"file":"assets/guide02-structure.jpg","upstream":"docs/images/guide02-structure.jpg","sha256":"12ff4efd810938a8eb397d9ff4b6c560e381b8e4210c2e50eb15d2e0aa277382","size_bytes":158624},
     {"file":"assets/guide03-receptor.jpg","upstream":"docs/images/guide03-receptor.jpg","sha256":"060af97c82e5f1b2b172d32ddd6e36135756ec46e228df63eca7fd9a7a9ea7f5","size_bytes":212111},

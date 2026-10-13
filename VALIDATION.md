@@ -123,3 +123,53 @@ The beta inquiry remains a `mailto:` link, which depends on the visitor's
 configured email application; it is not a hosted signup or automatic admission.
 No email was sent, installer published or scientific application modified.
 Raw browser evidence stays in ignored `.qa/`.
+
+## Authorized visitor counter and country map — 13 October 2026
+
+The owner explicitly requested a bottom-of-page visit counter and origin map,
+then authorized the free Flag Counter provider, its terms and the privacy-copy
+change before creation. One real counter **`0hUE`** was created using the official
+browser generator; its issued 800×375 map includes pageviews and the provider's
+visitor count. No email was submitted, management account created, paid plan
+purchased, CAPTCHA solved or administrative credential placed in source.
+
+The original image/link embed is retained verbatim. The public source manifest
+records its exact image/statistics URLs, creation date, provider policy links and
+measurement boundary. Counts are provider observations from creation onward,
+not invented historical traffic, downloads or adoption claims. The first
+provider-generated visit was a setup visit; setup/live acceptance visits can
+remain in the aggregate. Image updates are not guaranteed instantaneous.
+
+The responsive footer includes the world map, statistics link, measurement
+limits and expandable privacy information in both languages. FAQ copy now
+distinguishes website measurement from the unchanged local/no-telemetry desktop
+application. The previous site's no-analytics wording is superseded by this
+explicitly authorized image-only integration. No external executable script,
+new dependency, first-party cookie, custom geolocation API or research-data
+upload was added.
+
+The [provider privacy policy](https://www.flagcounter.com/privacy.html) describes
+IP-based country estimation without GPS, temporary IP-derived deduplication,
+no raw-IP logs or widget cookies, and aggregate free-counter statistics. The
+footer discloses the IP/browser-information transfer and possible advertising
+or cookies on the external statistics pages. These are attributed provider
+policies, not a legal-compliance certification or a guarantee about future
+provider behavior. The [terms](https://www.flagcounter.com/terms.html) retain
+accuracy/availability limitations, the required displayed image/statistics link
+and possible free-counter removal after inactivity.
+
+**Acceptance:** static asset/provenance checks and **15 Node tests pass**.
+Edge **155.0.4283.45** passes all **14 viewport/language cases and nine behavior
+checks**, including the visible responsive footer, complete EN/ES privacy text,
+FAQ round-trip/no-JavaScript regressions, and informative blocked-provider
+fallback with a still-usable statistics link. No global horizontal overflow,
+page error or failed local resource exists in the normal cases. The preexisting
+guide and five scientific screenshots remain byte-identical.
+
+Local preview replaces only the remote counter image with a plainly labelled
+layout fixture, containing no fabricated observations or totals. The browser
+gate records **zero live-counter requests**; the explicit blocked-provider test
+intercepts/aborts the external image before transmission. Test traffic is not
+used to inflate visitor statistics. Raw creation evidence, layout captures and
+browser results remain in ignored `.qa/`. Public source contains only a public
+counter identifier, never access credentials or private memory.
