@@ -1,4 +1,61 @@
-# Local website acceptance — 13 October 2026
+# Website acceptance
+
+## Current interface and presentation refresh — 20 October 2026
+
+The owner requests the current application identity in the website's design and
+captures. This bounded change keeps GitHub Pages, EN/ES content, existing
+scientific limitations, the private/unsigned beta boundary and the approved
+Flag Counter embed. It adds no signup system, tracking service or public
+installer, and changes no scientific application source or result.
+
+Carbon/ivory/brass styling covers navigation, editorial headings, product frames,
+workflow tabs, engine/evidence rows, documentation, FAQ and footer. A separate
+stylesheet extends the retained responsive foundation. Focus, reduced motion,
+no-JavaScript content and language/gallery semantics remain available. The story
+is scientific capability, not a splash or theme feature tour.
+
+All four gallery images use the current development UI. Three are byte-identical
+public README assets from Ankora `6cabd558828e5bf271e2e2bd419efe3e622e6c5c`;
+Structure is a new read-only view of the same verified immutable 7AQF source.
+Original structure SHA-256 is
+`79fd3b96adca6bdbe17ded6e9c693534007ae2cb0538739044788754b7c6faac`.
+The saved receptor is `72ff70a2-b373-4f59-b162-5bbc3a471b6e`; the box is a
+non-persistent RV2 A:401 preview with 5 Å padding. The hero is **not RV2**:
+analysis `de66d321-661c-4c27-8144-c6a6f64f8812` preserves 20 atom contacts,
+three residues and four exact residue/subtype groups for its own recorded ligand.
+Its generic 7AQF caption does not claim a co-crystal recovery or affinity.
+
+The library graphic is labeled a schematic, not a calculated outcome or UI
+capture. It replaces the old-theme filter image. The five earlier JPGs are
+removed from this site's deployment, recoverable from Git; the historical
+manual/PDF and original application evidence remain unchanged. Current capture
+appearance includes the application's pending development theme work, not a
+promise that every previously distributed installer looks identical.
+
+Verified with Node 24.19.0 and Edge 155.0.4283.62:
+
+- **17 unit/static tests pass**, including all six asset hashes/sizes, source
+  boundaries, bilingual text coverage and absence of earlier gallery images.
+  Hashed vector artwork is explicitly kept LF-stable on Windows/Linux by Git.
+- **13 deployed files, approximately 3.10 MiB**, including the unchanged PDF.
+- **14 viewport/language checks pass**: 1440×1000, 1280×800, 960×680,
+  768×1024, 390×844, 360×780 and 320×640, each EN/ES. Every gallery stage
+  loads with no document overflow, page errors or failed resource requests.
+- **Ten interaction checks pass**: actual palette/skip-link contrast, keyboard
+  gallery, modal Escape/focus restoration, language round-trip/shareable query,
+  mobile menu/Escape, all FAQ disclosures/keyboard behavior, unchanged PDF,
+  project-site prefix, no-JavaScript fallback, and visitor/privacy/failure states.
+- Local browser QA makes **zero live counter requests**, using the existing
+  labeled preview fixture. No artificial visitors or new provider ID.
+- Desktop, tablet, mobile, gallery and product-image captures visually reviewed.
+  An initial tablet decoration overflow and narrow Spanish engine-grid overflow
+  were found and fixed before acceptance; the final complete browser run passes.
+
+Publication remains a normal commit/push to the existing website `main`, followed
+by its Pages workflow. A local passing gate is not a deployment-success claim;
+confirm the run for the published commit separately.
+
+## Initial local website acceptance — 13 October 2026
 
 ## Boundary
 

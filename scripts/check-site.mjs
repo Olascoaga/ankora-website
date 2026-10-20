@@ -41,7 +41,8 @@ export async function checkSite() {
     assert.equal(bytes.length, asset.size_bytes, `Asset size drift: ${asset.file}`);
     assert.equal(createHash("sha256").update(bytes).digest("hex"), asset.sha256, `Asset identity drift: ${asset.file}`);
   }
-  const css = await readFile(resolve(dist, "assets/site.css"), "utf8");
+  const css = await readFile(resolve(dist, "assets/site.css"), "utf8") +
+    await readFile(resolve(dist, "assets/obsidian.css"), "utf8");
   const js = await readFile(resolve(dist, "assets/site.js"), "utf8");
   for (const text of [html, css, js]) {
     assert(!/(?<![A-Za-z0-9])[A-Z]:[\\/]/i.test(text), "No absolute filesystem paths in public text");

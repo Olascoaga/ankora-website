@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-10-13",
+  "reviewed_on": "2026-10-20",
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
-  "upstream_commit": "70ad0403d9f4a8a5db474213529e550a06d17c10",
+  "upstream_commit": "6cabd558828e5bf271e2e2bd419efe3e622e6c5c",
   "distribution": "unsigned private beta; no public installer on this website",
   "visitor_counter": {
     "provider": "Flag Counter / Boardhost",
@@ -16,11 +16,11 @@
     "privacy": "External image receives visitor IP and browser information. Provider describes no widget cookies or raw-IP logs, temporary IP-derived deduplication, and public aggregate counts. Provider statistics pages may contain advertising/cookies."
   },
   "assets": [
-    {"file":"assets/guide02-structure.jpg","upstream":"docs/images/guide02-structure.jpg","sha256":"12ff4efd810938a8eb397d9ff4b6c560e381b8e4210c2e50eb15d2e0aa277382","size_bytes":158624},
-    {"file":"assets/guide03-receptor.jpg","upstream":"docs/images/guide03-receptor.jpg","sha256":"060af97c82e5f1b2b172d32ddd6e36135756ec46e228df63eca7fd9a7a9ea7f5","size_bytes":212111},
-    {"file":"assets/guide06-binding-site.jpg","upstream":"docs/images/guide06-binding-site.jpg","sha256":"abbe1328acfdc91178843cca67938fed3f6502bfd30f08ecc5f80938281b4f00","size_bytes":143489},
-    {"file":"assets/guide11-interactions.jpg","upstream":"docs/images/guide11-interactions.jpg","sha256":"d0554e2dfffec304f636f13699e3e936ea5941e99bd3af22b2d4b402425bf256","size_bytes":173043},
-    {"file":"assets/guide19-library-filters.jpg","upstream":"docs/images/guide19-library-filters.jpg","sha256":"381ac6219fdedef8aeadd364b89352d8e69693c28ad4eb45d0a4fd09e7ba55f6","size_bytes":40752},
+    {"file":"assets/structure.jpg","origin":"read-only current-UI capture of original 7AQF; no scientific executable","source_artifact_id":"76f5afae-1f5d-4baa-8359-a7335407abb8","source_sha256":"79fd3b96adca6bdbe17ded6e9c693534007ae2cb0538739044788754b7c6faac","sha256":"d61219bb0bbbe51c8842e3e0bdbcb67687e61a2a2a43798f0d73ae6314de8f6a","size_bytes":212823},
+    {"file":"assets/receptor.jpg","upstream":"docs/images/readme-receptor.jpg","sha256":"b684821fe48b0ec11c778417caa4aa772c689a9f6327a840514496dabdf23b08","size_bytes":252054},
+    {"file":"assets/binding-site.jpg","upstream":"docs/images/readme-binding-site.jpg","sha256":"0014f046adab8d677c486c96242f0d5f220a11078afabf9b4e965e774dcc3706","size_bytes":188915},
+    {"file":"assets/pose-review.jpg","upstream":"docs/images/readme-obsidian-interactions.jpg","sha256":"83a18ac0ff45fa70817013302269512c82e5569ad1bf08493cea8883fc167317","size_bytes":260858},
+    {"file":"assets/library-workflow.svg","origin":"code-native workflow schematic; not a screenshot or calculated result","sha256":"94b98e320151d9fe85b40b7550d659267f51711a90fbd31c429f8f1b41622acb","size_bytes":2207},
     {"file":"assets/Ankora-User-Guide.pdf","upstream":"docs/Ankora-User-Guide.pdf","sha256":"a1065e0feb4de038e5d9de462a52d63e4b25b943a746bfb1c8eb1838793ae24e","size_bytes":2263968}
   ],
   "capability_sources": ["README.md", "docs/USER_GUIDE.md", "docs/validation/USER_GUIDE_7AQF_2026-10-09.md", "docs/validation/PRIVATE_BETA_RECEPTOR_RECOVERY_INSTALLER_2026-10-13.md", "CITATION.cff", "LICENSE"],

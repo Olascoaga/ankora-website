@@ -12,7 +12,7 @@ No domain has been purchased and no beta installer is distributed here.
 ## Content
 
 - English and Spanish, with a shareable `?lang=es` preference.
-- Actual 7AQF/RV2 captures, an accessible four-stage gallery and screenshot enlargement.
+- Current 7AQF captures, an accessible four-stage gallery and screenshot enlargement.
 - Explicit library filtering, preparation, local engine and traceability boundaries.
 - Linked frozen scientific evidence, including unfavorable outcomes and known gaps.
 - The existing illustrated 28-page PDF guide, repository/citation links and native FAQ.
@@ -21,11 +21,21 @@ No domain has been purchased and no beta installer is distributed here.
 - No third-party executable scripts, external fonts, first-party cookies, runtime API or build dependencies.
   The explicitly authorized Flag Counter image separately measures website visits.
 
-Screenshots and the guide are copied byte-for-byte from already-public Ankora
-documentation at source commit `70ad0403d9f4a8a5db474213529e550a06d17c10`.
+Three workflow captures and the guide are copied byte-for-byte from already-public
+Ankora documentation at source commit `6cabd558828e5bf271e2e2bd419efe3e622e6c5c`.
+Structure inspection is a fresh read-only capture of the same immutable 7AQF
+source in the current development UI; the library graphic is explicitly a
+workflow schematic, not a screenshot or calculated result. All current captures
+use the carbon/ivory/brass identity; no earlier-theme screenshot remains on the
+page. The unchanged downloadable manual retains its historical screenshots.
 `dist/assets/content-evidence.json` identifies their upstream paths and SHA-256s.
 Scientific values and capability claims are sourced from the linked public records;
 there are no invented endorsements, users, benchmark outcomes or performance promises.
+
+The current presentation uses `assets/obsidian.css` over the retained responsive
+layout foundation. EN/ES navigation, keyboard gallery, native disclosures and
+modal enlargement stay functional without adding third-party scripts or fonts.
+The product story remains scientific workflows, not a splash/theme feature tour.
 
 ## Local review
 
@@ -100,8 +110,8 @@ The website does not depend on the local preview server or the scientific backen
 
 For a custom domain, verify ownership and configure the domain and DNS in Pages
 before enabling HTTPS. No placeholder `CNAME`, canonical domain or invented live
-URL is shipped. Add absolute social-image/canonical metadata once the final
-domain is known. See the official [Pages workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+URL is shipped. The current canonical/social-image metadata uses the existing
+official Pages URL; update it if a custom domain is adopted. See the official [Pages workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 and [domain setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 All Pages content is public. Never include application data, private memory,

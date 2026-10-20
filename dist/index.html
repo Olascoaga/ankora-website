@@ -4,13 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ankora is an open-source Windows workbench for molecular docking and virtual screening. Explicit preparation, local computation and inspectable evidence.">
-  <meta name="theme-color" content="#103c35">
+  <meta name="theme-color" content="#0b0c0e">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ankora — Molecular docking, with the scientist in control">
   <meta property="og:description" content="Inspect. Prepare. Dock. Review. A local, open-source scientific workbench for Windows.">
+  <meta property="og:url" content="https://olascoaga.github.io/ankora-website/">
+  <meta property="og:image" content="https://olascoaga.github.io/ankora-website/assets/pose-review.jpg">
+  <meta property="og:image:alt" content="Ankora current pose review: linked molecular structure, 2D interaction diagram and recorded contacts">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://olascoaga.github.io/ankora-website/">
   <title>Ankora — Molecular docking, with the scientist in control</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/obsidian.css">
   <script src="assets/site.js" defer></script>
 </head>
 <body>
@@ -35,16 +41,16 @@
   </header>
   <main id="main">
     <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero-eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="betaTag">PRIVATE BETA · WINDOWS 11</span><span class="edition">OPEN SCIENCE / 01</span></div>
+      <div class="hero-eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="betaTag">PRIVATE BETA · WINDOWS 11</span><span class="edition">INDEPENDENT SOFTWARE / OPEN SCIENCE</span></div>
       <div class="hero-intro">
         <h1 id="hero-title"><span data-i18n="heroFirst">Molecular docking.</span><br><em data-i18n="heroSecond">In your hands.</em></h1>
         <div class="hero-copy"><p data-i18n="heroCopy">From a structure to a pose you can inspect. Prepare, screen and review in one local workbench — with every scientific decision visible.</p><div class="hero-ctas"><a class="button primary" href="#workbench"><span data-i18n="explore">Explore the workbench</span><svg aria-hidden="true"><use href="#arrow"/></svg></a><a class="text-link" href="assets/Ankora-User-Guide.pdf" data-i18n="readGuide">Read the guide ↗</a></div><p class="hero-note" data-i18n="heroNote">Open source. Local computation. No separate scientific-tool setup for beta testers.</p></div>
       </div>
       <figure class="hero-figure">
-        <div class="figure-toolbar"><span><span class="tiny-dot" aria-hidden="true"></span> ANKORA / POSE REVIEW</span><span>7AQF · RV2</span></div>
-        <img id="hero-image" src="assets/guide11-interactions.jpg" width="1195" height="579" alt="Real Ankora 7AQF/RV2 pose review with linked 3D receptor, 2D interaction diagram and contact table" fetchpriority="high" data-alt-i18n="heroAlt">
+        <div class="figure-toolbar"><span><span class="tiny-dot" aria-hidden="true"></span> ANKORA / POSE REVIEW</span><span>7AQF · PRESERVED POSE</span></div>
+        <img id="hero-image" src="assets/pose-review.jpg" width="1672" height="1303" alt="Current Ankora 7AQF pose review with linked 3D receptor, 2D interaction diagram and 20 preserved geometric contacts" fetchpriority="high" data-alt-i18n="heroAlt">
         <button class="expand-button" type="button" data-lightbox-target="hero-image" data-caption="heroCaption" aria-label="Enlarge the pose review screenshot" data-label-i18n="enlarge"><svg aria-hidden="true"><use href="#expand"/></svg></button>
-        <figcaption><span data-i18n="heroCaption">Actual interface · 7AQF / RV2 · Recorded pose, linked 3D and 2D evidence.</span><span data-i18n="geometryNote">Geometric contacts, not measured affinity.</span></figcaption>
+        <figcaption><span data-i18n="heroCaption">Actual interface · 7AQF · A preserved pose, linked 3D and 2D evidence.</span><span data-i18n="geometryNote">Geometric contacts, not measured affinity.</span></figcaption>
       </figure>
       <div class="principle-strip"><div><span class="strip-index">01</span><span data-i18n="strip1">Your inputs stay unchanged</span></div><div><span class="strip-index">02</span><span data-i18n="strip2">Your chemistry stays explicit</span></div><div><span class="strip-index">03</span><span data-i18n="strip3">Your results carry their evidence</span></div></div>
     </section>
@@ -59,13 +65,13 @@
         </div>
         <div id="workflow-panel" class="workflow-panel" role="tabpanel" aria-labelledby="tab-inspect" tabindex="0">
           <div class="stage-copy"><span class="stage-index" aria-hidden="true">/01</span><h3 id="stage-title" data-i18n="inspectTitle">Start with what is actually there.</h3><p id="stage-description" data-i18n="inspectDescription">Open PDB/mmCIF files or retrieve a public structure. Inspect chains, waters, ligands and structural issues before making a derivative.</p><ul id="stage-points"><li data-i18n="inspectPoint1">Mol* molecular visualization</li><li data-i18n="inspectPoint2">Immutable imported coordinates</li><li data-i18n="inspectPoint3">Viewer-linked structural observations</li></ul><a class="text-link" href="https://github.com/Olascoaga/Ankora/blob/main/docs/USER_GUIDE.md"><span data-i18n="walkthrough">Follow the 7AQF walkthrough</span> ↗</a></div>
-          <figure class="stage-figure"><img id="workflow-image" src="assets/guide02-structure.jpg" width="1894" height="1244" alt="Actual Ankora Structure workspace inspecting the deposited 7AQF structure" loading="lazy"><button class="expand-button" type="button" data-lightbox-target="workflow-image" data-caption="stageCaption" aria-label="Enlarge the workflow screenshot" data-label-i18n="enlarge"><svg aria-hidden="true"><use href="#expand"/></svg></button><figcaption id="stage-caption" data-i18n="stageCaption">Actual 7AQF interface · Structure inspection</figcaption></figure>
+          <figure class="stage-figure"><img id="workflow-image" src="assets/structure.jpg" width="1920" height="1200" alt="Actual Ankora Structure workspace inspecting the deposited 7AQF structure" loading="lazy"><button class="expand-button" type="button" data-lightbox-target="workflow-image" data-caption="stageCaption" aria-label="Enlarge the workflow screenshot" data-label-i18n="enlarge"><svg aria-hidden="true"><use href="#expand"/></svg></button><figcaption id="stage-caption" data-i18n="stageCaption">Actual 7AQF interface · Structure inspection</figcaption></figure>
         </div>
       </div>
     </section>
     <section class="screening-section container section-space" aria-labelledby="screening-title">
       <div class="screening-copy"><p class="eyebrow" data-i18n="libraryEyebrow">02 / VIRTUAL SCREENING</p><h2 id="screening-title"><span data-i18n="libraryTitle1">One compound.</span><br><em data-i18n="libraryTitle2">Or a whole library.</em></h2><p class="section-lead" data-i18n="libraryIntro">Clean and prepare a library before spending time on docking. Keep the selection, each chemical state and every failed molecule in the record.</p><div class="feature-lines"><article><span class="feature-number">01</span><div><h3 data-i18n="filterTitle">Filter before you minimize</h3><p data-i18n="filterCopy">Lipinski, Veber, Ghose, Muegge and QED. PAINS/Brenk alerts, duplicate detection and custom descriptor rules inform an explicit selection.</p></div></article><article><span class="feature-number">02</span><div><h3 data-i18n="chemistryTitle">Prepare an independent conformer</h3><p data-i18n="chemistryCopy">Inspect mass, SMILES, charge and stereochemistry. Generate ETKDGv3 coordinates, minimize with MMFF and write PDBQT with Meeko.</p></div></article><article><span class="feature-number">03</span><div><h3 data-i18n="parallelTitle">Process in parallel, within a budget</h3><p data-i18n="parallelCopy">Bounded multicore preparation and molecule-level docking progress. Failures remain visible instead of disappearing from the campaign.</p></div></article></div></div>
-      <div class="library-visual"><div class="library-visual-top"><span class="eyebrow" data-i18n="selectionLabel">EXPLICIT LIBRARY SELECTION</span><span class="spec-mark" aria-hidden="true">↗</span></div><figure><img src="assets/guide19-library-filters.jpg" width="597" height="479" alt="Actual Ankora controls for named library filters and PAINS/Brenk alert policies" loading="lazy" data-alt-i18n="filtersAlt"><figcaption data-i18n="filtersCaption">Actual interface · Rules guide a decision; they do not prove activity.</figcaption></figure><div class="descriptor-line"><span>SMILES</span><span>MW</span><span>cLogP</span><span>TPSA</span><span>QED</span></div><p class="small-note" data-i18n="libraryNote">The imported library stays intact. Applied filters create a separate, recorded selection manifest.</p></div>
+      <div class="library-visual"><div class="library-visual-top"><span class="eyebrow" data-i18n="selectionLabel">EXPLICIT LIBRARY SELECTION</span><span class="spec-mark" aria-hidden="true">↗</span></div><figure><img src="assets/library-workflow.svg" width="640" height="620" alt="Schematic of library filtering, explicit selection and independent conformer preparation; not a calculated result" loading="lazy" data-alt-i18n="filtersAlt"><figcaption data-i18n="filtersCaption">Workflow schematic · Rules guide a decision; they do not prove activity.</figcaption></figure><div class="descriptor-line"><span>SMILES</span><span>MW</span><span>cLogP</span><span>TPSA</span><span>QED</span></div><p class="small-note" data-i18n="libraryNote">The imported library stays intact. Applied filters create a separate, recorded selection manifest.</p></div>
     </section>
     <section class="engines-section" aria-labelledby="engines-title"><div class="container engines-layout"><div><p class="eyebrow" data-i18n="enginesEyebrow">03 / LOCAL EXECUTION</p><h2 id="engines-title" data-i18n="enginesTitle">Choose your engine.<br>Keep its meaning.</h2><p data-i18n="enginesIntro">The same workbench, distinct scoring and search protocols. No merged score and no silent GPU-to-CPU substitution.</p></div><div class="engine-list"><article><div><h3>AutoDock Vina <span>1.2.7</span></h3><p data-i18n="vinaCopy">CPU · single ligand and library campaigns</p></div><span class="engine-badge">CPU</span></article><article><div><h3>AutoDock4 <span>4.2.6</span></h3><p data-i18n="cpuCopy">Reusable AutoGrid4 maps · native clusters and runs</p></div><span class="engine-badge">CPU</span></article><article><div><h3>AutoDock-GPU <span>1.6</span></h3><p data-i18n="gpuCopy">AutoDock4 scoring family · compatible OpenCL device required</p></div><span class="engine-badge">GPU</span></article><p class="engine-note" data-i18n="engineNote">GNINA is deferred in this beta. Vina scores and AutoDock4 energies are not interchangeable. GPU runs are not assumed bitwise reproducible.</p></div></div></section>
     <section id="science" class="science-section section-space" aria-labelledby="science-title"><div class="container">
@@ -101,6 +107,6 @@
       </figure>
     </section>
   </footer>
-  <dialog id="screenshot-dialog" aria-labelledby="screenshot-title"><div class="dialog-heading"><h2 id="screenshot-title" data-i18n="actualScreenshot">Actual Ankora interface</h2><button type="button" class="dialog-close" data-i18n="close">Close</button></div><img id="dialog-image" src="assets/guide11-interactions.jpg" alt=""><p id="dialog-caption"></p></dialog>
+  <dialog id="screenshot-dialog" aria-labelledby="screenshot-title"><div class="dialog-heading"><h2 id="screenshot-title" data-i18n="actualScreenshot">Actual Ankora interface</h2><button type="button" class="dialog-close" data-i18n="close">Close</button></div><img id="dialog-image" src="assets/pose-review.jpg" alt=""><p id="dialog-caption"></p></dialog>
 </body>
 </html>

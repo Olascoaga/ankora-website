@@ -69,6 +69,8 @@ try {
       assert((await page.goto(`${base}${lang === "es" ? "?lang=es" : ""}`)).ok());
       await ready();
       assert.equal(await page.locator("html").getAttribute("lang"), lang);
+      assert.equal(await page.locator('body').evaluate(node => getComputedStyle(node).backgroundColor), 'rgb(11, 12, 14)');
+      assert.equal(await page.locator('.button.primary').evaluate(node => getComputedStyle(node).backgroundColor), 'rgb(223, 164, 90)');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px ${lang} has horizontal overflow`);
       assert.equal(await page.getByRole("heading", { level: 1 }).count(), 1);
       await checkFaq(page, lang === "en" ? englishAnswers : null);
@@ -91,6 +93,11 @@ try {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto(base);
   await ready();
+  const skip = page.locator('.skip-link');
+  await page.keyboard.press('Tab');
+  assert.equal(await skip.evaluate(node => document.activeElement === node), true);
+  assert.equal(await skip.evaluate(node => getComputedStyle(node).color), 'rgb(18, 13, 6)');
+  evidence.interactions.push('current palette and visible keyboard skip link');
   const tab = page.locator("#tab-inspect");
   await tab.focus();
   await page.keyboard.press("ArrowRight");

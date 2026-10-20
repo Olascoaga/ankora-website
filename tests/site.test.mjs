@@ -6,6 +6,7 @@ import { checkSite, root } from "../scripts/check-site.mjs";
 import { localPreviewHtml } from "../scripts/preview-content.mjs";
 const html = await readFile(resolve(root, "dist/index.html"), "utf8");
 const js = await readFile(resolve(root, "dist/assets/site.js"), "utf8");
+const theme = await readFile(resolve(root, "dist/assets/obsidian.css"), "utf8");
 const workflow = await readFile(resolve(root, ".github/workflows/pages.yml"), "utf8");
 const counter = JSON.parse(await readFile(resolve(root, "dist/assets/content-evidence.json"), "utf8")).visitor_counter;
 test("all static assets, internal anchors and publication boundaries pass", async () => { const result = await checkSite(); assert(result.bytes < 6 * 1024 * 1024); });
@@ -23,3 +24,16 @@ test("the screenshot/guide manifest binds public source bytes and honest claims"
 test("real footer widget retains the provider-issued image and statistics link", () => { const embed = `<a href="${counter.statistics_url}"><img src="${counter.image_url}" alt="Flag Counter" border="0"></a>`; assert(html.includes(embed)); assert.equal(counter.counter_id, "0hUE"); assert.equal((html.match(/<img\b[^>]*src="https:/g) || []).length, 1); assert(html.indexOf('id="visitors"') > html.indexOf("<footer")); });
 test("visitor disclosure distinguishes web traffic, estimates and application privacy", () => { for (const text of ["approximate countries", "earlier visits are not included", "not downloads", "Setup checks", "IP address", "temporary IP-derived hash", "advertising and cookies", "receives no scientific data"]) assert(html.includes(text), text); assert(!html.includes("This website contains no analytics")); assert(js.includes('visitorImage.addEventListener("error", visitorUnavailable)')); });
 test("local preview substitutes a labelled fixture without changing deployed HTML", () => { const preview = localPreviewHtml(html, counter.image_url); assert(!preview.includes(`src="${counter.image_url}"`)); assert(preview.includes("data:image/svg+xml,")); assert(decodeURIComponent(preview).includes("Visitor counting disabled")); assert(preview.includes(counter.statistics_url)); assert(html.includes(`src="${counter.image_url}"`)); });
+test("current visual identity replaces earlier gallery captures without promoting splash or themes", () => {
+  assert(html.includes('href="assets/obsidian.css"'));
+  for (const color of ["#0b0c0e", "#dfa45a", "#eceae4"]) assert(theme.includes(color));
+  for (const name of ["structure.jpg", "receptor.jpg", "binding-site.jpg", "pose-review.jpg"]) assert(js.includes(name));
+  assert(!/guide\d+[^\s"']*\.jpg/.test(html + js));
+  assert(!/splash|Anchoring|Obsidian Instrument/.test(html));
+  assert(html.includes("Workflow schematic"));
+  assert(!html.includes("7AQF / RV2 · Recorded pose"));
+});
+test("hashed vector artwork keeps identical line endings on Windows and Pages", async () => {
+  const attributes = await readFile(resolve(root, '.gitattributes'), 'utf8');
+  assert(attributes.includes('dist/assets/*.svg text eol=lf'));
+});
