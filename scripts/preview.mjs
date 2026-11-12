@@ -6,7 +6,7 @@ import { localPreviewHtml } from "./preview-content.mjs";
 const root = fileURLToPath(new URL("../dist/", import.meta.url));
 const counter = JSON.parse(await readFile(resolve(root, "assets/content-evidence.json"), "utf8")).visitor_counter;
 const port = Number(process.env.PORT || 4175);
-const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".pdf": "application/pdf", ".json": "application/json" };
+const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml", ".jpg": "image/jpeg", ".png": "image/png", ".pdf": "application/pdf", ".json": "application/json" };
 const server = createServer(async (req, res) => {
   try {
     let pathname = decodeURIComponent(new URL(req.url, "http://127.0.0.1").pathname);

@@ -75,7 +75,7 @@ try {
       assert.equal(await page.getByRole("heading", { level: 1 }).count(), 1);
       await checkFaq(page, lang === "en" ? englishAnswers : null);
       await checkVisitors(page);
-      for (const stage of ["inspect", "prepare", "define", "review"]) {
+      for (const stage of ["inspect", "prepare", "define", "screen", "redock", "review", "methods"]) {
         await page.locator(`#tab-${stage}`).click();
         await ready();
         assert.equal(await page.locator(`#tab-${stage}`).getAttribute("aria-selected"), "true");
@@ -87,7 +87,7 @@ try {
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({ path: resolve(output, `site-${width}-${lang}.png`), fullPage: true });
       if (width === 1440 && lang === "en") await page.screenshot({ path: resolve(output, "hero-desktop.png") });
-      evidence.viewports.push({ width, height, language: lang, images_loaded: true, gallery_stages: 4, faq_answers: 4, visitor_fixture: true, horizontal_overflow: false });
+      evidence.viewports.push({ width, height, language: lang, images_loaded: true, gallery_stages: 7, faq_answers: 4, visitor_fixture: true, horizontal_overflow: false });
     }
   }
   await page.setViewportSize({ width: 1280, height: 800 });
@@ -103,7 +103,7 @@ try {
   await page.keyboard.press("ArrowRight");
   assert.equal(await page.locator("#tab-prepare").evaluate(node => document.activeElement === node), true);
   await page.keyboard.press("End");
-  assert.equal(await page.locator("#tab-review").getAttribute("aria-selected"), "true");
+  assert.equal(await page.locator("#tab-methods").getAttribute("aria-selected"), "true");
   await page.keyboard.press("Home");
   assert.equal(await tab.getAttribute("aria-selected"), "true");
   evidence.interactions.push("roving keyboard gallery");

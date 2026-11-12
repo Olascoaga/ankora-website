@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-10-20",
+  "reviewed_on": "2026-11-12",
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
-  "upstream_commit": "6cabd558828e5bf271e2e2bd419efe3e622e6c5c",
-  "distribution": "unsigned private beta; no public installer on this website",
+  "upstream_commit": "99b4f0ad23705d953f41ce2c9b95b6556bcdf588",
+  "main_branch_commit": "6cabd558828e5bf271e2e2bd419efe3e622e6c5c",
+  "distribution": "unsigned Windows 11 x64 private beta and Linux x86_64 release candidate (pending bare-metal workstation Gate D6); no public installer on this website",
   "visitor_counter": {
     "provider": "Flag Counter / Boardhost",
     "created_on": "2026-10-13",
@@ -16,14 +17,91 @@
     "privacy": "External image receives visitor IP and browser information. Provider describes no widget cookies or raw-IP logs, temporary IP-derived deduplication, and public aggregate counts. Provider statistics pages may contain advertising/cookies."
   },
   "assets": [
-    {"file":"assets/structure.jpg","origin":"read-only current-UI capture of original 7AQF; no scientific executable","source_artifact_id":"76f5afae-1f5d-4baa-8359-a7335407abb8","source_sha256":"79fd3b96adca6bdbe17ded6e9c693534007ae2cb0538739044788754b7c6faac","sha256":"d61219bb0bbbe51c8842e3e0bdbcb67687e61a2a2a43798f0d73ae6314de8f6a","size_bytes":212823},
-    {"file":"assets/receptor.jpg","upstream":"docs/images/readme-receptor.jpg","sha256":"b684821fe48b0ec11c778417caa4aa772c689a9f6327a840514496dabdf23b08","size_bytes":252054},
-    {"file":"assets/binding-site.jpg","upstream":"docs/images/readme-binding-site.jpg","sha256":"0014f046adab8d677c486c96242f0d5f220a11078afabf9b4e965e774dcc3706","size_bytes":188915},
-    {"file":"assets/pose-review.jpg","upstream":"docs/images/readme-obsidian-interactions.jpg","sha256":"83a18ac0ff45fa70817013302269512c82e5569ad1bf08493cea8883fc167317","size_bytes":260858},
-    {"file":"assets/library-workflow.svg","origin":"code-native workflow schematic; not a screenshot or calculated result","sha256":"94b98e320151d9fe85b40b7550d659267f51711a90fbd31c429f8f1b41622acb","size_bytes":2207},
-    {"file":"assets/Ankora-User-Guide.pdf","upstream":"docs/Ankora-User-Guide.pdf","sha256":"a1065e0feb4de038e5d9de462a52d63e4b25b943a746bfb1c8eb1838793ae24e","size_bytes":2263968}
+    {
+      "file": "assets/structure.jpg",
+      "platform": "Windows 11 x64 · Obsidian development UI",
+      "origin": "read-only current-UI capture of original 7AQF; no scientific executable",
+      "source_artifact_id": "76f5afae-1f5d-4baa-8359-a7335407abb8",
+      "source_sha256": "79fd3b96adca6bdbe17ded6e9c693534007ae2cb0538739044788754b7c6faac",
+      "sha256": "d61219bb0bbbe51c8842e3e0bdbcb67687e61a2a2a43798f0d73ae6314de8f6a",
+      "size_bytes": 212823
+    },
+    {
+      "file": "assets/receptor.jpg",
+      "platform": "Windows 11 x64 · Obsidian development UI",
+      "upstream": "docs/images/readme-receptor.jpg",
+      "sha256": "b684821fe48b0ec11c778417caa4aa772c689a9f6327a840514496dabdf23b08",
+      "size_bytes": 252054
+    },
+    {
+      "file": "assets/binding-site.jpg",
+      "platform": "Windows 11 x64 · Obsidian development UI",
+      "upstream": "docs/images/readme-binding-site.jpg",
+      "sha256": "0014f046adab8d677c486c96242f0d5f220a11078afabf9b4e965e774dcc3706",
+      "size_bytes": 188915
+    },
+    {
+      "file": "assets/gnina-screening.png",
+      "platform": "Linux x86_64 (WSL2/WSLg wry 0.55.1) · GNINA 1.3.3 CUDA on RTX 5050",
+      "origin": "native WebDriver capture 1280-campaign-results.png from wslg-screening-ui-03 (docs/validation/LINUX_GNINA_SCREENING_WSLG.md; evidence SHA-256 4beff8a8bc9e792428ed72f8d5ad39a280fed45c7e8dffe2b0afbbcf173d5c54)",
+      "sha256": "ae45c1cdf7633d0cb6d551f319775b0104ae783d0b8f7d7c95e2ecece84842e6",
+      "size_bytes": 208014
+    },
+    {
+      "file": "assets/redocking.jpg",
+      "platform": "Windows 11 x64 · Obsidian development UI",
+      "origin": "read-only current-UI capture of historical SERPINE1 7AQF/RV2 AutoDock 4.2.6 redocking record 179484ac-a6cd-497c-8147-1333955813ff (USER_GUIDE_REFRESH_2026-10-21.md)",
+      "sha256": "e2d039f96ff5a7b9822ecddcf908bc87d8064f137426f81366e4002f4006224d",
+      "size_bytes": 96537
+    },
+    {
+      "file": "assets/pose-review.jpg",
+      "platform": "Windows 11 x64 · Obsidian development UI",
+      "upstream": "docs/images/readme-obsidian-interactions.jpg",
+      "sha256": "83a18ac0ff45fa70817013302269512c82e5569ad1bf08493cea8883fc167317",
+      "size_bytes": 260858
+    },
+    {
+      "file": "assets/methods.jpg",
+      "platform": "Windows 11 x64 · Obsidian development UI",
+      "origin": "read-only current-UI capture of record-derived 7AQF AutoDock Vina 1.2.7 Methods report (USER_GUIDE_REFRESH_2026-10-21.md)",
+      "sha256": "4c21d9cd7d82d8455bcba3523c814628fa3a1ebd9ac10a5535111694a4b03026",
+      "size_bytes": 104614
+    },
+    {
+      "file": "assets/library-workflow.svg",
+      "origin": "code-native workflow schematic; not a screenshot or calculated result",
+      "sha256": "94b98e320151d9fe85b40b7550d659267f51711a90fbd31c429f8f1b41622acb",
+      "size_bytes": 2207
+    },
+    {
+      "file": "assets/Ankora-User-Guide.pdf",
+      "upstream": "docs/Ankora-User-Guide.pdf",
+      "sha256": "a968db64aad113b79fdaed5087ffc8cf9165286e7d1b2667637b785318c17707",
+      "size_bytes": 2423614
+    }
   ],
-  "capability_sources": ["README.md", "docs/USER_GUIDE.md", "docs/validation/USER_GUIDE_7AQF_2026-10-09.md", "docs/validation/PRIVATE_BETA_RECEPTOR_RECOVERY_INSTALLER_2026-10-13.md", "CITATION.cff", "LICENSE"],
-  "science_sources": ["docs/validation/VALIDATION_STATUS.json", "docs/validation/reference_cases/SERPINE1_7AQF_RV2.md", "docs/validation/reference_cases/PIK3CD_6OCO_M5V_RESULTS.md", "docs/validation/LIT_PCBA_VINA_PRIMARY_METRICS_2026-09-28.md"],
+  "capability_sources": [
+    "README.md",
+    "docs/product/PLATFORM_STATUS.json",
+    "docs/product/PLATFORM_STATUS.md",
+    "docs/USER_GUIDE.md",
+    "docs/architecture/ADR/ADR-026-linux-port-and-native-acceptance.md",
+    "docs/architecture/ADR/ADR-027-linux-gnina.md",
+    "docs/architecture/ADR/ADR-028-gnina-cnn-vs-refinement-ensemble.md",
+    "docs/architecture/ADR/ADR-029-linux-offline-distribution.md",
+    "docs/validation/LINUX_GNINA_SCREENING_WSLG.md",
+    "docs/validation/LINUX_OFFLINE_PACKAGE_SMOKE.md",
+    "docs/validation/LINUX_NATIVE_WORKSTATION_PROTOCOL.md",
+    "CITATION.cff",
+    "LICENSE"
+  ],
+  "science_sources": [
+    "docs/validation/VALIDATION_STATUS.json",
+    "docs/validation/INDEX.md",
+    "docs/validation/reference_cases/SERPINE1_7AQF_RV2.md",
+    "docs/validation/reference_cases/PIK3CD_6OCO_M5V_RESULTS.md",
+    "docs/validation/LIT_PCBA_VINA_PRIMARY_METRICS_2026-09-28.md"
+  ],
   "scientific_boundary": "Recorded cases do not establish experimental affinity, biological activity, prospective screening performance or cross-target generality. No unfavorable result is omitted to imply universal validation."
 }

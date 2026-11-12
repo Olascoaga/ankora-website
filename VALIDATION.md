@@ -1,5 +1,69 @@
 # Website acceptance
 
+## Expanded workflow gallery, Linux RC / GNINA 1.3.3 synchronization and updated 30-page guide — 12 November 2026
+
+The owner authorized updating the presentation website in sync with Ankora's
+documentation and Linux release-candidate (`codex/linux-bootstrap` PR #1)
+without merging `origin/main` (`6cabd558828e5bf271e2e2bd419efe3e622e6c5c`).
+This bounded update preserves GitHub Pages, complete English/Spanish coverage,
+the approved Flag Counter embed (`0hUE`), all scientific boundaries, and the
+no-public-installer policy:
+
+- **Expanded 7-stage real workflow gallery (`01 Inspect` through `07 Methods`):**
+  Retains the four verified Windows 11 x64 Obsidian 7AQF views (`structure.jpg`,
+  `receptor.jpg`, `binding-site.jpg`, `pose-review.jpg`) and adds three
+  SHA-256-locked real captures:
+  - `assets/gnina-screening.png` (`208,014` B, SHA-256
+    `ae45c1cdf7633d0cb6d551f319775b0104ae783d0b8f7d7c95e2ecece84842e6`): native
+    Linux WSLg WebDriver capture (`1280-campaign-results.png`) of `GNINA 1.3.3`
+    CUDA virtual screening on `1HSG` (`RTX 5050 Laptop GPU`,
+    `docs/validation/LINUX_GNINA_SCREENING_WSLG.md`).
+  - `assets/redocking.jpg` (`96,537` B, SHA-256
+    `e2d039f96ff5a7b9822ecddcf908bc87d8064f137426f81366e4002f4006224d`):
+    read-only current-UI capture of historical `SERPINE1 7AQF/RV2` AutoDock 4.2.6
+    in-place heavy-atom RMSD validation (`179484ac-a6cd-497c-8147-1333955813ff`,
+    separating sampling recovery `0.454 Å` from top-rank misranking `3.139 Å`).
+  - `assets/methods.jpg` (`104,614` B, SHA-256
+    `4c21d9cd7d82d8455bcba3523c814628fa3a1ebd9ac10a5535111694a4b03026`):
+    read-only current-UI capture of the record-derived `7AQF` AutoDock Vina 1.2.7
+    `Methods` report.
+- **Explicit-control contrast (`02 / EXPLICIT BY DESIGN`), 4-engine local matrix &
+  platform transparency:** Contrasts scientist-owned step-by-step control against
+  silent docking black boxes; documents `AutoDock Vina 1.2.7`, `AutoDock4 4.2.6`,
+  `AutoDock-GPU 1.6` and Linux `GNINA 1.3.3` (separate `CNN_VS`, `CNNscore`,
+  `CNNaffinity` pK and minimized `kcal/mol` scales, CUDA `refinement`, built-in
+  1.3 KD ensemble, and optional 1-click offline CUDA 12.8 / cuDNN 9.25 pack);
+  and distinguishes the unsigned **Windows 11 x64 (`private_beta`)** build from
+  the **Linux x86\_64 (`release_candidate`)** `.deb` (`272.34 MiB`) / `.tar.zst`
+  (`313.97 MiB`) packages pending bare-metal physical workstation `Gate D6`.
+- **Updated 30-page / 20-figure manual & author ORCID:** Ships regenerated
+  link-safe `assets/Ankora-User-Guide.pdf` (`2,423,614` B, SHA-256
+  `a968db64aad113b79fdaed5087ffc8cf9165286e7d1b2667637b785318c17707`, zero
+  `file://` URIs) and links author ORCID `0009-0008-5522-7938` alongside
+  `CITATION.cff`, `PLATFORM_STATUS.md` and the 128-record validation index.
+  `dist/assets/content-evidence.json` locks all `9` shipped binary/SVG assets
+  against `codex/linux-bootstrap` commit `99b4f0ad23705d953f41ce2c9b95b6556bcdf588`
+  and `main` commit `6cabd558828e5bf271e2e2bd419efe3e622e6c5c`.
+
+Verified locally with Node 24.19.0 and headless Microsoft Edge 157.0.4341.46:
+
+- **Static & provenance gate (`npm run check`):** Passes across **16 deployed
+  static files (`3.66 MiB`)** with zero external scripts, fonts, cookies,
+  symlinks, executables or machine-specific paths.
+- **18 Node unit/static tests (`npm test`) pass**, verifying all 9 asset SHA-256
+  digests and byte sizes, 7 accessible roving-tabindex gallery stages, complete
+  Spanish text-key coverage, ORCID `0009-0008-5522-7938`, Linux RC / `Gate D6`
+  disclosures, and `dist/`-only GitHub Pages workflow scope.
+- **14 viewport/language browser checks pass** (`1440×1000`, `1280×800`,
+  `960×680`, `768×1024`, `390×844`, `360×780`, `320×640` in EN and ES): all 7
+  gallery stages load naturally with zero horizontal overflow, console errors or
+  failed resource requests.
+- **10 interaction checks pass** (roving keyboard gallery across 7 tabs, modal
+  enlargement/Escape/focus restoration, EN/ES round-trip & `?lang=es`, mobile
+  drawer/Escape, all FAQ disclosures, valid 30-page PDF response,
+  `/ankora-website/` project-site prefix, no-JavaScript fallback, and Flag
+  Counter fixture/blocked fallback) with **zero live Flag Counter requests**.
+
 ## Current interface and presentation refresh — 20 October 2026
 
 The owner requests the current application identity in the website's design and
