@@ -2,8 +2,8 @@
   "schema_version": 1,
   "reviewed_on": "2026-11-12",
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
-  "upstream_commit": "99b4f0ad23705d953f41ce2c9b95b6556bcdf588",
-  "main_branch_commit": "6cabd558828e5bf271e2e2bd419efe3e622e6c5c",
+  "upstream_commit": "1926281c6bb133c2e25f38627429b0b9de621869",
+  "main_branch_commit": "1926281c6bb133c2e25f38627429b0b9de621869",
   "distribution": "unsigned Windows 11 x64 private beta and Linux x86_64 release candidate (pending bare-metal workstation Gate D6); no public installer on this website",
   "visitor_counter": {
     "provider": "Flag Counter / Boardhost",
@@ -77,8 +77,8 @@
     {
       "file": "assets/Ankora-User-Guide.pdf",
       "upstream": "docs/Ankora-User-Guide.pdf",
-      "sha256": "a968db64aad113b79fdaed5087ffc8cf9165286e7d1b2667637b785318c17707",
-      "size_bytes": 2423614
+      "sha256": "2a78d24a9f7710683e6666aba1b44be8e976efa5c48157591695a0f42f09722a",
+      "size_bytes": 3092209
     }
   ],
   "capability_sources": [

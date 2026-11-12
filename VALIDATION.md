@@ -1,3 +1,9 @@
+# Website Validation
+
+## Unified `main` Synchronization (12 November 2026)
+
+- Synchronized public links (`/blob/main/...`), 129 indexed validation records, and the unified 34-page / 20-figure Obsidian `assets/Ankora-User-Guide.pdf` (`3,092,209` B, SHA-256 `2a78d24a9f7710683e6666aba1b44be8e976efa5c48157591695a0f42f09722a`) against Ankora unified `main` commit `1926281c6bb133c2e25f38627429b0b9de621869` after PR #1 merge.
+
 # Website acceptance
 
 ## Expanded workflow gallery, Linux RC / GNINA 1.3.3 synchronization and updated 30-page guide — 12 November 2026

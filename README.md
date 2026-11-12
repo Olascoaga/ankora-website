@@ -16,7 +16,7 @@ No domain has been purchased and no beta installer is distributed here.
 - Explicit-control contrast section (`02 / EXPLICIT BY DESIGN`) detailing immutable SHA-256 artifacts, selective chemistry, separate scoring families, in-place heavy-atom RMSD (sampling vs ranking) and record-derived `Methods`.
 - Local execution across four engines (`AutoDock Vina 1.2.7`, `AutoDock4 4.2.6`, `AutoDock-GPU 1.6`, and Linux `GNINA 1.3.3` with optional 1-click offline CUDA 12.8 pack).
 - Linked frozen scientific evidence (`7AQF`, `6OCO`, `LIT-PCBA`) plus the machine-verified 3-platform / 128-record engineering matrix (`PLATFORM_STATUS.md`), disclosing unfavorable outcomes and the pending bare-metal Linux workstation gate (`Gate D6`).
-- The updated 30-page / 20-figure illustrated PDF guide (`Ankora-User-Guide.pdf`), repository/citation links (author ORCID `0009-0008-5522-7938`) and native FAQ.
+- The updated 34-page / 20-figure illustrated PDF guide (`Ankora-User-Guide.pdf`), repository/citation links (author ORCID `0009-0008-5522-7938`) and native FAQ.
 - Private-beta / Linux-RC contact by email, not a public download or a simulated signup form.
 - A real visit counter and country map in the footer, with a visible privacy disclosure.
 - No third-party executable scripts, external fonts, first-party cookies, runtime API or build dependencies.
@@ -24,8 +24,7 @@ No domain has been purchased and no beta installer is distributed here.
 
 All seven workflow captures and the 30-page guide are SHA-256-locked in
 `dist/assets/content-evidence.json` against Ankora's reviewed documentation
-(`codex/linux-bootstrap` commit `99b4f0ad23705d953f41ce2c9b95b6556bcdf588` and
-`main` commit `6cabd558828e5bf271e2e2bd419efe3e622e6c5c`). Six captures use
+(unified `main` commit `1926281c6bb133c2e25f38627429b0b9de621869`). Six captures use
 read-only 7AQF Obsidian views on Windows 11 x64 (`structure.jpg`, `receptor.jpg`,
 `binding-site.jpg`, `redocking.jpg`, `pose-review.jpg`, `methods.jpg`), and stage
 `04 Screen` (`gnina-screening.png`) is a real native Linux WSLg WebDriver capture
