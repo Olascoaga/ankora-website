@@ -11,10 +11,21 @@ const output = fileURLToPath(new URL("../.qa/", import.meta.url));
 const sourceHtml = await readFile(new URL("../dist/index.html", import.meta.url), "utf8");
 const englishAnswers = [...sourceHtml.matchAll(/<p data-i18n="answer\d">([^<]+)<\/p>/g)].map(match => match[1]);
 assert.equal(englishAnswers.length, 4);
-const counter = JSON.parse(await readFile(new URL("../dist/assets/content-evidence.json", import.meta.url), "utf8")).visitor_counter;
+const manifest = JSON.parse(await readFile(new URL("../dist/assets/content-evidence.json", import.meta.url), "utf8"));
+const counter = manifest.visitor_counter;
+const stageFiles = {
+  inspect: "assets/structure.jpg",
+  prepare: "assets/receptor.jpg",
+  define: "assets/binding-site.jpg",
+  screen: "assets/gnina-screening.png",
+  redock: "assets/redocking.jpg",
+  review: "assets/pose-review.jpg",
+  methods: "assets/methods.jpg",
+};
+const v1DesktopScrollBaseline = 8479;
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ channel: process.env.ANKORA_BROWSER_CHANNEL || "msedge", headless: true });
-const evidence = { passed: false, browser: browser.version(), errors: [], failed_requests: [], live_counter_requests: [], viewports: [], interactions: [] };
+const evidence = { passed: false, browser: browser.version(), v1_desktop_scroll_baseline: v1DesktopScrollBaseline, errors: [], failed_requests: [], live_counter_requests: [], viewports: [], interactions: [] };
 try {
   const page = await browser.newPage({ reducedMotion: "reduce" });
   page.on("pageerror", error => evidence.errors.push(error.message));
@@ -69,10 +80,16 @@ try {
       assert((await page.goto(`${base}${lang === "es" ? "?lang=es" : ""}`)).ok());
       await ready();
       assert.equal(await page.locator("html").getAttribute("lang"), lang);
-      assert.equal(await page.locator('body').evaluate(node => getComputedStyle(node).backgroundColor), 'rgb(11, 12, 14)');
-      assert.equal(await page.locator('.button.primary').evaluate(node => getComputedStyle(node).backgroundColor), 'rgb(223, 164, 90)');
+      assert.equal(await page.locator("body").evaluate(node => getComputedStyle(node).backgroundColor), "rgb(11, 12, 14)");
+      assert.equal(await page.locator(".button.primary").evaluate(node => getComputedStyle(node).backgroundColor), "rgb(223, 164, 90)");
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px ${lang} has horizontal overflow`);
       assert.equal(await page.getByRole("heading", { level: 1 }).count(), 1);
+      const scrollHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+      if (width === 1440 && lang === "en") {
+        assert(scrollHeight <= 5000, `Expected minimalist desktop scrollHeight <= 5000px, got ${scrollHeight}px`);
+        const vernierBottom = await page.locator(".workflow-tabs").evaluate(node => node.getBoundingClientRect().bottom);
+        assert(vernierBottom <= 550, `Expected vernier scale visible near top of first viewport, got ${vernierBottom}px`);
+      }
       await checkFaq(page, lang === "en" ? englishAnswers : null);
       await checkVisitors(page);
       for (const stage of ["inspect", "prepare", "define", "screen", "redock", "review", "methods"]) {
@@ -80,6 +97,10 @@ try {
         await ready();
         assert.equal(await page.locator(`#tab-${stage}`).getAttribute("aria-selected"), "true");
         assert.equal(await page.locator("#workflow-panel").getAttribute("aria-labelledby"), `tab-${stage}`);
+        const expectedHash = manifest.assets.find(item => item.file === stageFiles[stage]).sha256;
+        const provenanceText = await page.locator("#stage-provenance").innerText();
+        assert(provenanceText.includes(`sha256:${expectedHash.slice(0, 8)}…${expectedHash.slice(-4)}`), `Stage ${stage} provenance hash mismatch`);
+        if (stage === "screen") assert(provenanceText.includes("WSLg"), "Linux screening stage must disclose WSLg context");
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Gallery ${stage} overflows`);
       }
       await page.locator("#tab-inspect").click();
@@ -87,17 +108,17 @@ try {
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({ path: resolve(output, `site-${width}-${lang}.png`), fullPage: true });
       if (width === 1440 && lang === "en") await page.screenshot({ path: resolve(output, "hero-desktop.png") });
-      evidence.viewports.push({ width, height, language: lang, images_loaded: true, gallery_stages: 7, faq_answers: 4, visitor_fixture: true, horizontal_overflow: false });
+      evidence.viewports.push({ width, height, language: lang, scroll_height: scrollHeight, images_loaded: true, gallery_stages: 7, faq_answers: 4, visitor_fixture: true, horizontal_overflow: false });
     }
   }
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto(base);
   await ready();
-  const skip = page.locator('.skip-link');
-  await page.keyboard.press('Tab');
+  const skip = page.locator(".skip-link");
+  await page.keyboard.press("Tab");
   assert.equal(await skip.evaluate(node => document.activeElement === node), true);
-  assert.equal(await skip.evaluate(node => getComputedStyle(node).color), 'rgb(18, 13, 6)');
-  evidence.interactions.push('current palette and visible keyboard skip link');
+  assert.equal(await skip.evaluate(node => getComputedStyle(node).color), "rgb(18, 13, 6)");
+  evidence.interactions.push("current palette and visible keyboard skip link");
   const tab = page.locator("#tab-inspect");
   await tab.focus();
   await page.keyboard.press("ArrowRight");
@@ -107,13 +128,15 @@ try {
   await page.keyboard.press("Home");
   assert.equal(await tab.getAttribute("aria-selected"), "true");
   evidence.interactions.push("roving keyboard gallery");
-  const expand = page.locator('[data-lightbox-target="hero-image"]');
+  const expand = page.locator('[data-lightbox-target="workflow-image"]');
   await expand.click();
   assert(await page.locator("#screenshot-dialog").isVisible());
+  const dialogProvenance = await page.locator("#dialog-provenance").innerText();
+  assert(dialogProvenance.includes("does not establish chemical validity"));
   await page.keyboard.press("Escape");
   assert(!(await page.locator("#screenshot-dialog").isVisible()));
   assert.equal(await expand.evaluate(node => document.activeElement === node), true);
-  evidence.interactions.push("native modal and Escape focus restoration");
+  evidence.interactions.push("native modal, full SHA-256 provenance note and Escape focus restoration");
   await page.locator('[data-lang="es"]').click();
   assert.equal(await page.locator("html").getAttribute("lang"), "es");
   assert(new URL(page.url()).searchParams.get("lang") === "es");
@@ -157,7 +180,7 @@ try {
   const fallback = await disabledJS.newPage();
   await fallback.goto(base);
   assert(await fallback.locator("#site-nav").isVisible());
-  assert.equal(await fallback.locator('[data-js-menu]').isVisible(), false);
+  assert.equal(await fallback.locator("[data-js-menu]").isVisible(), false);
   assert.equal(await fallback.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
   await checkFaq(fallback, englishAnswers);
   await checkVisitors(fallback);

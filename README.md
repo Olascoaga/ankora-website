@@ -12,17 +12,17 @@ No domain has been purchased and no beta installer is distributed here.
 ## Content
 
 - English and Spanish, with a shareable `?lang=es` preference.
-- Seven real workflow captures (`01 Inspect`, `02 Prepare`, `03 Define`, `04 Screen`, `05 Redock`, `06 Review`, `07 Methods`) with accessible keyboard navigation and screenshot enlargement.
-- Explicit-control contrast section (`02 / EXPLICIT BY DESIGN`) detailing immutable SHA-256 artifacts, selective chemistry, separate scoring families, in-place heavy-atom RMSD (sampling vs ranking) and record-derived `Methods`.
-- Local execution across four engines (`AutoDock Vina 1.2.7`, `AutoDock4 4.2.6`, `AutoDock-GPU 1.6`, and Linux `GNINA 1.3.3` with optional 1-click offline CUDA 12.8 pack).
-- Linked frozen scientific evidence (`7AQF`, `6OCO`, `LIT-PCBA`) plus the machine-verified 3-platform / 128-record engineering matrix (`PLATFORM_STATUS.md`), disclosing unfavorable outcomes and the pending bare-metal Linux workstation gate (`Gate D6`).
-- The updated 34-page / 20-figure illustrated PDF guide (`Ankora-User-Guide.pdf`), repository/citation links (author ORCID `0009-0008-5522-7938`) and native FAQ.
+- Seven real workflow captures (`01 Inspect`, `02 Prepare`, `03 Define`, `04 Screen`, `05 Redock`, `06 Review`, `07 Methods`) presented in an optical Plate I workbench explorer with a graduated vernier scale, keyboard navigation, native `<dialog>` enlargement, and byte-verified `SHA-256` provenance captions.
+- Explicit scientific contract (`Table 1`, five booktabs invariants) detailing immutable SHA-256 artifacts, selective chemistry, separate scoring families, in-place heavy-atom RMSD (sampling vs ranking) and record-derived `Methods`.
+- Local execution matrix (`Table 2`) across four engines (`AutoDock Vina 1.2.7`, `AutoDock4 4.2.6`, `AutoDock-GPU 1.6`, and Linux `GNINA 1.3.3` with optional 1-click offline CUDA 12.8 pack).
+- Linked frozen validation index (`Table 3`) separating scientific validation records (`7AQF`, `6OCO`, `LIT-PCBA`) from the machine-verified 3-platform / 129-record engineering matrix (`PLATFORM_STATUS.md`), disclosing unfavorable outcomes and the pending bare-metal Linux workstation gate (`Gate D6`).
+- The updated 34-page / 20-figure illustrated PDF guide (`Ankora-User-Guide.pdf`), repository/citation references (`[1]–[3]`, author ORCID `0009-0008-5522-7938`) and native FAQ.
 - Private-beta / Linux-RC contact by email, not a public download or a simulated signup form.
-- A real visit counter and country map in the footer, with a visible privacy disclosure.
+- A compact colophon visit counter and country map in the footer, with a visible privacy disclosure.
 - No third-party executable scripts, external fonts, first-party cookies, runtime API or build dependencies.
   The explicitly authorized Flag Counter image separately measures website visits.
 
-All seven workflow captures and the 30-page guide are SHA-256-locked in
+All seven workflow captures and the 34-page guide are SHA-256-locked in
 `dist/assets/content-evidence.json` against Ankora's reviewed documentation
 (unified `main` commit `1926281c6bb133c2e25f38627429b0b9de621869`). Six captures use
 read-only 7AQF Obsidian views on Windows 11 x64 (`structure.jpg`, `receptor.jpg`,
@@ -34,10 +34,11 @@ schematic, not a screenshot or calculated result. Scientific values and capabili
 claims are sourced from the linked public records; there are no invented
 endorsements, users, benchmark outcomes or performance promises.
 
-The current presentation uses `assets/obsidian.css` over the retained responsive
-layout foundation. EN/ES navigation, keyboard gallery, native disclosures and
-modal enlargement stay functional without adding third-party scripts or fonts.
-The product story remains scientific workflows, not a splash/theme feature tour.
+The presentation uses an Instrument Monograph ("Lámina y Tabla") visual architecture:
+design tokens in `assets/obsidian.css` and a continuous `#0b0c0e` carbon layout in
+`assets/site.css` (12-column editorial grid, hairline booktabs tables, zero drop-shadows).
+EN/ES navigation, keyboard gallery, native disclosures and modal enlargement stay
+functional without adding third-party scripts or fonts.
 
 ## Local review
 

@@ -1,5 +1,47 @@
 # Website Validation
 
+## Minimalist Instrument Monograph Redesign ("Lámina y Tabla", 12 November 2026)
+
+Following a 2-round Ankora Design Council deliberation (`claude-fable-5-2` +
+`gpt-6.1-sol`), the presentation website was redesigned from a 10-band landing
+layout into a continuous `#0b0c0e` scientific instrument monograph while keeping
+all 9 SHA-256-locked binary/SVG assets byte-identical against Ankora unified
+`main` commit `1926281c6bb133c2e25f38627429b0b9de621869`:
+
+- **Consolidation & measured scroll reduction:** Eliminates the duplicate hero
+  `pose-review.jpg` frame, alternating grey background bands, card boxes and
+   legacy light-theme CSS patchwork. Elevates the 7-stage workbench explorer to
+  **Plate I** directly below a compact editorial opening, with a graduated
+  vernier scale (`01 Inspect` through `07 Methods`), optical corner registration
+  marks, and on-disk-verified `content id sha256:` provenance captions (explicitly
+  labeled in the lightbox modal as identifying file bytes rather than chemical
+  validity). Desktop `scrollHeight` in headless Microsoft Edge `157.0.4341.46`
+  drops from **`8,479 px` to `4,354 px` (`-48.6%`)** at `1440×1000` EN
+  (`8,624 px` to `4,448 px`, `-48.4%` in ES; `11,101 px` to `7,589 px`, `-31.6%`
+  at `390×844` EN).
+- **Booktabs tables & scientific/engineering separation:** Replaces card stacks
+  with three hairline `booktabs` tables (`Table 1` 5-row explicit contract,
+  `Table 2` 4-engine local execution matrix, and `Table 3` validation index
+  separating the three scientific validation records `SERPINE1 7AQF/RV2`,
+  `PIK3CD 6OCO/M5V`, and `LIT-PCBA` from the 129-record `PLATFORM_STATUS.md`
+  engineering verification), followed by full-scale unboxed scientific boundary
+  prose.
+- **Colophon & unmodified Flag Counter (`0hUE`):** Retains the exact provider
+  `<a><img></a>` embed inside `#visitor-widget` without CSS color inversion
+  (preserving flag colors), framed at `max-width: 276px` in the architectural
+  colophon alongside visible scope limits, `#visitor-privacy`, and
+  `#visitor-unavailable`.
+- **Verification (Node `24.19.0` + headless Microsoft Edge `157.0.4341.46`):**
+  - `npm run check`: **16 static files (`4.30 MiB`)**, all links/anchors/SHA-256
+    bytes verified.
+  - `npm test`: **20/20 Node unit & provenance tests pass** (including byte-hash
+    verification of all 7 stage provenance captions against `content-evidence.json`
+    and on-disk files).
+  - `scripts/browser-check.mjs`: **14 viewport/language checks** (`1440×1000`,
+    `1280×800`, `960×680`, `768×1024`, `390×844`, `360×780`, `320×640` in EN/ES)
+    and **10 interaction checks** pass with zero horizontal overflow, console
+    errors, failed requests, or live `flagcounter.com` traffic.
+
 ## Unified `main` Synchronization (12 November 2026)
 
 - Synchronized public links (`/blob/main/...`), 129 indexed validation records, and the unified 34-page / 20-figure Obsidian `assets/Ankora-User-Guide.pdf` (`3,092,209` B, SHA-256 `2a78d24a9f7710683e6666aba1b44be8e976efa5c48157591695a0f42f09722a`) against Ankora unified `main` commit `1926281c6bb133c2e25f38627429b0b9de621869` after PR #1 merge.
