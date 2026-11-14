@@ -14,7 +14,25 @@ const manifest = JSON.parse(await readFile(resolve(root, "dist/assets/content-ev
 const counter = manifest.visitor_counter;
 test("all static assets, internal anchors and publication boundaries pass", async () => { const result = await checkSite(); assert(result.bytes < 6 * 1024 * 1024); });
 test("semantic landmarks and one main heading", () => { assert.equal((html.match(/<h1\b/g) || []).length, 1); for (const tag of ["header", "nav", "main", "footer"]) assert(html.includes(`<${tag}`)); assert(html.includes('class="skip-link"')); });
-test("private beta cannot be mistaken for a public download", () => { assert(!/href="[^\"]*\.exe/.test(html)); assert(html.includes("currently shared with invited")); assert(html.includes("The beta is unsigned")); assert(html.includes("subject=Ankora%20private%20beta")); });
+test("public pre-release downloads point to verified GitHub Release v0.1.0-beta.1 assets with honest disclosures", () => {
+  const relBase = "https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/";
+  for (const name of [
+    "Ankora_0.1.0_x64-setup.exe",
+    "Ankora_0.1.0_x64-sources-companion.zip",
+    "Ankora_0.1.0_amd64.deb",
+    "Ankora_0.1.0_linux_x86_64.tar.zst",
+    "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part01",
+    "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part02",
+    "SHA256SUMS.txt",
+  ]) assert(html.includes(`${relBase}${name}`), `Missing release download ${name}`);
+  const winHash = manifest.release.assets["Ankora_0.1.0_x64-setup.exe"].sha256;
+  const debHash = manifest.release.assets["Ankora_0.1.0_amd64.deb"].sha256;
+  assert(html.includes(`sha256:${winHash.slice(0, 8)}…${winHash.slice(-4)}`));
+  assert(html.includes(`sha256:${debHash.slice(0, 8)}…${debHash.slice(-4)}`));
+  assert(html.includes("The Windows installer is unsigned"));
+  assert(html.includes("SmartScreen"));
+  assert(!html.includes("there is no public installer release yet"));
+});
 test("scientific constraints remain visible", () => { for (const text of ["not experimental affinities", "not measured affinity", "not assumed bitwise reproducible", "Modest retrospective", "known gaps"]) assert(html.includes(text), text); assert(!/universally validated|confirmed binder|trusted by|testimonials/i.test(html)); });
 test("engine versions and platform boundaries are explicit", () => { for (const text of ["1.2.7", "4.2.6", "1.6", "1.3.3", "GNINA 1.3.3 is Linux-only", "Windows 11 x64", "Linux x86_64", "Gate D6", "macOS is not supported", "compatible OpenCL", "0009-0008-5522-7938"]) assert(html.includes(text), text); });
 test("language switching is complete for all marked text", () => { const keys = [...html.matchAll(/data-(?:alt-|label-)?i18n="([^"]+)"/g)].map(match => match[1]); for (const key of keys) assert(new RegExp(`\\b${key}:`).test(js), `Missing Spanish ${key}`); assert(js.includes('document.documentElement.lang = next')); assert(!js.includes("innerHTML")); });
@@ -24,7 +42,7 @@ test("explicit-control contrast section presents five auditable invariants", () 
 test("screenshots have alt text, captions, optional enlargement and native modal", () => { assert(html.includes('aria-labelledby="screenshot-title"')); assert(js.includes("dialog.showModal()")); assert(js.includes("dialog.close()")); assert(html.includes("Actual interface")); for (const image of html.matchAll(/<img\b[^>]*>/g)) assert(/\balt="[^"]*"/.test(image[0]), "Image needs alt text"); });
 test("workflow publishes static output only with bounded permissions", () => { assert(workflow.includes("path: dist")); assert(workflow.includes("needs: verify")); assert(workflow.includes("pages: write")); assert(workflow.includes("id-token: write")); assert(!workflow.includes("secrets.")); });
 test("sources, manual, platform matrix and citation links point to the maintained project", () => { for (const value of ["Olascoaga/Ankora", "assets/Ankora-User-Guide.pdf", "CITATION.cff", "VALIDATION_STATUS.md", "PLATFORM_STATUS.md", "https://orcid.org/0009-0008-5522-7938"]) assert(html.includes(value), value); });
-test("the screenshot/guide manifest binds public source bytes and honest claims", async () => { assert.equal(manifest.assets.length, 9); assert.match(manifest.upstream_commit, /^[a-f0-9]{40}$/); assert.match(manifest.main_branch_commit, /^[a-f0-9]{40}$/); assert(manifest.scientific_boundary.includes("No unfavorable result is omitted")); assert(manifest.distribution.includes("no public installer")); });
+test("the screenshot/guide manifest binds public source bytes and honest claims", async () => { assert.equal(manifest.assets.length, 9); assert.match(manifest.upstream_commit, /^[a-f0-9]{40}$/); assert.match(manifest.main_branch_commit, /^[a-f0-9]{40}$/); assert(manifest.scientific_boundary.includes("No unfavorable result is omitted")); assert(manifest.distribution.includes("public pre-release v0.1.0-beta.1")); assert.equal(manifest.release.commit, manifest.upstream_commit); });
 test("real footer widget retains the provider-issued image and statistics link", () => { const embed = `<a href="${counter.statistics_url}"><img src="${counter.image_url}" alt="Flag Counter" border="0"></a>`; assert(html.includes(embed)); assert.equal(counter.counter_id, "0hUE"); assert.equal((html.match(/<img\b[^>]*src="https:/g) || []).length, 1); assert(html.indexOf('id="visitors"') > html.indexOf("<footer")); });
 test("visitor disclosure distinguishes web traffic, estimates and application privacy", () => { for (const text of ["approximate countries", "earlier visits are not included", "not downloads", "Setup checks", "IP address", "temporary IP-derived hash", "advertising and cookies", "receives no scientific data"]) assert(html.includes(text), text); assert(!html.includes("This website contains no analytics")); assert(js.includes('visitorImage.addEventListener("error", visitorUnavailable)')); });
 test("local preview substitutes a labelled fixture without changing deployed HTML", () => { const preview = localPreviewHtml(html, counter.image_url); assert(!preview.includes(`src="${counter.image_url}"`)); assert(preview.includes("data:image/svg+xml,")); assert(decodeURIComponent(preview).includes("Visitor counting disabled")); assert(preview.includes(counter.statistics_url)); assert(html.includes(`src="${counter.image_url}"`)); });

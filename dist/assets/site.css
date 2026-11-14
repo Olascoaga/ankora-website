@@ -799,6 +799,63 @@ h1 em {
   border-color: #e8b36d;
 }
 
+.button.secondary {
+  background: rgba(223, 164, 90, 0.06);
+  color: var(--ink);
+  border: 1px solid var(--brass);
+}
+
+.button.secondary:hover {
+  background: rgba(223, 164, 90, 0.14);
+}
+
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.download-actions .button {
+  max-width: 100%;
+  text-align: center;
+}
+
+.download-ledger {
+  width: 100%;
+  border-top: 1px solid var(--rule-strong);
+  display: grid;
+}
+
+.download-ledger > div {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  gap: 3px;
+}
+
+.download-ledger dt {
+  font: 600 0.78125rem/1.4 var(--mono);
+  color: var(--ink);
+}
+
+.download-ledger dd {
+  font: 400 0.78125rem/1.55 var(--mono);
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.hash-inline {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.download-meta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
 .button svg {
   width: 14px;
   height: 14px;

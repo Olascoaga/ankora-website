@@ -49,7 +49,9 @@ export async function checkSite() {
     assert(!/127\.0\.0\.1:8765|\.ankora-data|\.claude|memory\//i.test(text), "No private runtime references");
   }
   assert(!/innerHTML|eval\(|fetch\(|localStorage|document\.cookie/.test(js), "Only the disclosed image counter may measure visits; no injected markup, extra data collection or cookies");
-  assert(html.includes("there is no public installer release yet"));
+  assert(html.includes("https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_x64-setup.exe"));
+  assert(html.includes("https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_amd64.deb"));
+  assert(html.includes("unsigned") && html.includes("Gate D6"));
   assert(css.includes("prefers-reduced-motion"));
   console.log(`Website checks passed: ${files} static files, ${(bytes / 1024 / 1024).toFixed(2)} MiB; all assets and anchors resolve.`);
   return { files, bytes };

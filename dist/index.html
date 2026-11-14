@@ -34,7 +34,7 @@
         <a href="#workbench" data-i18n="navWorkbench">Workbench</a>
         <a href="#control" data-i18n="navMethod">Method</a>
         <a href="#science" data-i18n="navScience">Evidence</a>
-        <a href="#resources" data-i18n="navGuide">Access &amp; guide</a>
+        <a href="#resources" data-i18n="navGuide">Downloads &amp; guide</a>
       </nav>
       <div class="header-actions">
         <div class="language-switch" aria-label="Language" hidden data-js-languages>
@@ -57,7 +57,7 @@
           <dl class="spec-ledger">
             <div>
               <dt data-i18n="statusLabel">Distribution status</dt>
-              <dd data-i18n="statusValue">Windows 11 x64 private beta · Linux x86_64 RC (native Gate D6 pending)</dd>
+              <dd data-i18n="statusValue">v0.1.0-beta.1 offline pre-release · Windows 11 x64 &amp; Linux x86_64 RC</dd>
             </div>
             <div>
               <dt data-i18n="scopeLabel">Execution model</dt>
@@ -65,8 +65,8 @@
             </div>
           </dl>
           <div class="opening-links">
+            <a class="mono-link" href="#beta"><span data-i18n="requestAccess">Download v0.1.0-beta.1</span> ↓</a>
             <a class="mono-link" href="assets/Ankora-User-Guide.pdf"><span data-i18n="readGuide">User Guide (PDF, 34 pp.)</span> ↗</a>
-            <a class="mono-link" href="#beta"><span data-i18n="requestAccess">Private beta access</span> ↓</a>
           </div>
         </div>
       </div>
@@ -288,10 +288,36 @@
       <div class="chapter-body">
         <div class="access-split">
           <div id="beta" class="beta-block">
-            <span class="sub-caption" data-i18n="betaEyebrow">Private beta &amp; Linux RC</span>
-            <p data-i18n="betaCopy">Ankora is currently shared with invited testers on Windows 11 x64 (private beta) and Linux x86_64 (release candidate on unified main, pending bare-metal workstation Gate D6); there is no public installer release yet.</p>
-            <a class="button primary" href="mailto:olaskuaga@gmail.com?subject=Ankora%20private%20beta"><span data-i18n="betaAction">Ask about the beta</span><svg aria-hidden="true"><use href="#external"/></svg></a>
-            <p class="beta-note" data-i18n="betaNote">The beta is unsigned. Follow your institution's software policy; do not disable system security. GPU drivers remain the vendor's responsibility. macOS is not supported.</p>
+            <span class="sub-caption" data-i18n="betaEyebrow">Offline downloads · v0.1.0-beta.1</span>
+            <p data-i18n="betaCopy">Download self-contained offline bundles built from unified commit 1926281c6bb1 for Windows 11 x64 and Linux x86_64 (Ubuntu 24.04 LTS release candidate, pending bare-metal Gate D6).</p>
+            <div class="download-actions">
+              <a class="button primary" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_x64-setup.exe"><span data-i18n="winDownload">Windows 11 x64 (.exe · 407 MiB)</span></a>
+              <a class="button secondary" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_amd64.deb"><span data-i18n="debDownload">Ubuntu / Debian (.deb · 272 MiB)</span></a>
+            </div>
+            <dl class="download-ledger">
+              <div>
+                <dt data-i18n="winLedgerTitle">Windows 11 x64 · per-user offline setup</dt>
+                <dd>
+                  <span class="hash-inline">sha256:09ab6fce…56af</span> ·
+                  <a class="mono-link" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_x64-sources-companion.zip"><span data-i18n="winSourcesLink">Companion sources (.zip, 232 MiB)</span> ↗</a>
+                </dd>
+              </div>
+              <div>
+                <dt data-i18n="linLedgerTitle">Linux x86_64 RC · portable &amp; GNINA 1.3.3 CUDA 12.8</dt>
+                <dd>
+                  <span class="hash-inline">deb sha256:c5e57852…8b4b</span> ·
+                  <a class="mono-link" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_linux_x86_64.tar.zst"><span data-i18n="tarDownload">Zero-sudo .tar.zst (314 MiB)</span> ↗</a> ·
+                  <span data-i18n="gninaPackLabel">1-click GNINA pack:</span>
+                  <a class="mono-link" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part01">part01</a> /
+                  <a class="mono-link" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part02">part02</a>
+                </dd>
+              </div>
+            </dl>
+            <div class="download-meta-links">
+              <a class="mono-link" href="https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/SHA256SUMS.txt"><span data-i18n="checksumsLink">SHA256SUMS.txt</span> ↗</a>
+              <a class="mono-link" href="https://github.com/Olascoaga/Ankora/releases/tag/v0.1.0-beta.1"><span data-i18n="releaseNotesLink">Install instructions &amp; all 12 assets</span> ↗</a>
+            </div>
+            <p class="beta-note" data-i18n="betaNote">The Windows installer is unsigned (SmartScreen will prompt before first run; verify SHA-256 first). Follow your institution's software policy and do not disable system security. GPU drivers remain the vendor's responsibility. macOS is not supported.</p>
           </div>
 
           <div id="resources" class="references-block">
@@ -339,7 +365,7 @@
           </details>
           <details>
             <summary data-i18n="faq3">What is the status of Windows 11, Linux and macOS?</summary>
-            <p data-i18n="answer3">Windows 11 x64 is the authoritative private-beta platform. Linux x86_64 is a feature-complete release candidate unified on main, verified clean-room in WSL2/WSLg with real RTX 5050 CUDA runs, and awaits bare-metal non-WSL Linux workstation attestation (Gate D6) before full official release status is claimed. macOS is not supported.</p>
+            <p data-i18n="answer3">Windows 11 x64 is the primary desktop pre-release platform (unsigned offline installer). Linux x86_64 is a feature-complete release candidate unified on main, verified clean-room in WSL2/WSLg with real RTX 5050 CUDA runs, and awaits bare-metal non-WSL Linux workstation attestation (Gate D6) before full official release status is claimed. macOS is not supported.</p>
           </details>
           <details>
             <summary data-i18n="faq4">What does open source mean here?</summary>

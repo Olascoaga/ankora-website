@@ -1,10 +1,41 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-11-12",
+  "reviewed_on": "2026-11-14",
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
   "upstream_commit": "1926281c6bb133c2e25f38627429b0b9de621869",
   "main_branch_commit": "1926281c6bb133c2e25f38627429b0b9de621869",
-  "distribution": "unsigned Windows 11 x64 private beta and Linux x86_64 release candidate (pending bare-metal workstation Gate D6); no public installer on this website",
+  "distribution": "public pre-release v0.1.0-beta.1 on GitHub Releases: unsigned Windows 11 x64 offline installer and Linux x86_64 release candidate (.deb, portable .tar.zst, and 2-part offline GNINA 1.3.3 CUDA 12.8 pack; bare-metal workstation Gate D6 pending); installers hosted on GitHub Releases, never inside Pages dist/",
+  "release": {
+    "tag": "v0.1.0-beta.1",
+    "url": "https://github.com/Olascoaga/Ankora/releases/tag/v0.1.0-beta.1",
+    "commit": "1926281c6bb133c2e25f38627429b0b9de621869",
+    "assets": {
+      "Ankora_0.1.0_x64-setup.exe": {
+        "size_bytes": 427244628,
+        "sha256": "09ab6fced9fe5963ed4a884be1ae4006457744f814ee7e4f47629ee0705356af"
+      },
+      "Ankora_0.1.0_x64-sources-companion.zip": {
+        "size_bytes": 243736647,
+        "sha256": "46367eb873f5ccdb81589b26222750302b2f92b4d0b6fc3b6e5000642efc7c04"
+      },
+      "Ankora_0.1.0_amd64.deb": {
+        "size_bytes": 285566948,
+        "sha256": "c5e57852f84a7f025cd9fe37e5233f62a14679075ec342d2e48cc2b4ed418b4b"
+      },
+      "Ankora_0.1.0_linux_x86_64.tar.zst": {
+        "size_bytes": 329216895,
+        "sha256": "a80111ad6e3ff1816259be3003d2d157be404a5f7b19c4933371ac3c0f820ee7"
+      },
+      "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part01": {
+        "size_bytes": 1610612736,
+        "sha256": "1fda57990872851fb0b20bf8b12f36e6a03028ead611cd94d00f1b67aa328ff8"
+      },
+      "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part02": {
+        "size_bytes": 1126525042,
+        "sha256": "4ee73d1008634c51a023a67932b4c564fe1dbc1bc53d824e971de952d6cf5686"
+      }
+    }
+  },
   "visitor_counter": {
     "provider": "Flag Counter / Boardhost",
     "created_on": "2026-10-13",
