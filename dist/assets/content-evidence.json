@@ -1,30 +1,30 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-11-14",
+  "reviewed_on": "2026-11-16",
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
-  "upstream_commit": "1926281c6bb133c2e25f38627429b0b9de621869",
-  "main_branch_commit": "1926281c6bb133c2e25f38627429b0b9de621869",
-  "distribution": "public pre-release v0.1.0-beta.1 on GitHub Releases: unsigned Windows 11 x64 offline installer and Linux x86_64 release candidate (.deb, portable .tar.zst, and 2-part offline GNINA 1.3.3 CUDA 12.8 pack; bare-metal workstation Gate D6 pending); installers hosted on GitHub Releases, never inside Pages dist/",
+  "upstream_commit": "36f1c0e9b11adb579920437d23298472ac948bcf",
+  "main_branch_commit": "36f1c0e9b11adb579920437d23298472ac948bcf",
+  "distribution": "public pre-release v0.1.0-beta.2 on GitHub Releases: unsigned Windows 11 x64 offline installer, Linux x86_64 release candidate (.deb, portable .tar.zst, and 2-part offline GNINA 1.3.3 CUDA 12.8 pack; bare-metal workstation Gate D6 pending), and verifiable 7AQF/RV2 demo bundle; installers hosted on GitHub Releases, never inside Pages dist/",
   "release": {
-    "tag": "v0.1.0-beta.1",
-    "url": "https://github.com/Olascoaga/Ankora/releases/tag/v0.1.0-beta.1",
-    "commit": "1926281c6bb133c2e25f38627429b0b9de621869",
+    "tag": "v0.1.0-beta.2",
+    "url": "https://github.com/Olascoaga/Ankora/releases/tag/v0.1.0-beta.2",
+    "commit": "36f1c0e9b11adb579920437d23298472ac948bcf",
     "assets": {
       "Ankora_0.1.0_x64-setup.exe": {
-        "size_bytes": 427244628,
-        "sha256": "09ab6fced9fe5963ed4a884be1ae4006457744f814ee7e4f47629ee0705356af"
+        "size_bytes": 427237557,
+        "sha256": "db7850472fa836e01e86ab044a19bd62989f99aeab8382a660903cfc943e85bc"
       },
       "Ankora_0.1.0_x64-sources-companion.zip": {
         "size_bytes": 243736647,
         "sha256": "46367eb873f5ccdb81589b26222750302b2f92b4d0b6fc3b6e5000642efc7c04"
       },
       "Ankora_0.1.0_amd64.deb": {
-        "size_bytes": 285566948,
-        "sha256": "c5e57852f84a7f025cd9fe37e5233f62a14679075ec342d2e48cc2b4ed418b4b"
+        "size_bytes": 285567616,
+        "sha256": "794117310564953a879a2a27ff09a449da293cfbe200a64aab24372ace39eafb"
       },
       "Ankora_0.1.0_linux_x86_64.tar.zst": {
-        "size_bytes": 329216895,
-        "sha256": "a80111ad6e3ff1816259be3003d2d157be404a5f7b19c4933371ac3c0f820ee7"
+        "size_bytes": 329218187,
+        "sha256": "d4c9f843c619176a50723e88426a45ec3db79f7781ff601a27f85a0e7f2b34ca"
       },
       "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part01": {
         "size_bytes": 1610612736,
@@ -33,6 +33,10 @@
       "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part02": {
         "size_bytes": 1126525042,
         "sha256": "4ee73d1008634c51a023a67932b4c564fe1dbc1bc53d824e971de952d6cf5686"
+      },
+      "Ankora_0.1.0_Verifiable_Demo_Case.zip": {
+        "size_bytes": 402501,
+        "sha256": "7a8681be5fbc5d866f40257d8c558194020b04a689912737233de9141bca3484"
       }
     }
   },
@@ -108,8 +112,8 @@
     {
       "file": "assets/Ankora-User-Guide.pdf",
       "upstream": "docs/Ankora-User-Guide.pdf",
-      "sha256": "2a78d24a9f7710683e6666aba1b44be8e976efa5c48157591695a0f42f09722a",
-      "size_bytes": 3092209
+      "sha256": "1f791e1a1c9b80a888773de4c841f2698052d5fe11232a63f2cfe6230483e3c3",
+      "size_bytes": 3119183
     }
   ],
   "capability_sources": [

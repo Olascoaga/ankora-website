@@ -14,8 +14,8 @@ const manifest = JSON.parse(await readFile(resolve(root, "dist/assets/content-ev
 const counter = manifest.visitor_counter;
 test("all static assets, internal anchors and publication boundaries pass", async () => { const result = await checkSite(); assert(result.bytes < 6 * 1024 * 1024); });
 test("semantic landmarks and one main heading", () => { assert.equal((html.match(/<h1\b/g) || []).length, 1); for (const tag of ["header", "nav", "main", "footer"]) assert(html.includes(`<${tag}`)); assert(html.includes('class="skip-link"')); });
-test("public pre-release downloads point to verified GitHub Release v0.1.0-beta.1 assets with honest disclosures", () => {
-  const relBase = "https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.1/";
+test("public pre-release downloads point to verified GitHub Release v0.1.0-beta.2 assets with honest disclosures", () => {
+  const relBase = "https://github.com/Olascoaga/Ankora/releases/download/v0.1.0-beta.2/";
   for (const name of [
     "Ankora_0.1.0_x64-setup.exe",
     "Ankora_0.1.0_x64-sources-companion.zip",
@@ -23,6 +23,7 @@ test("public pre-release downloads point to verified GitHub Release v0.1.0-beta.
     "Ankora_0.1.0_linux_x86_64.tar.zst",
     "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part01",
     "Ankora_0.1.0_gnina-cuda12-pack.tar.zst.part02",
+    "Ankora_0.1.0_Verifiable_Demo_Case.zip",
     "SHA256SUMS.txt",
   ]) assert(html.includes(`${relBase}${name}`), `Missing release download ${name}`);
   const winHash = manifest.release.assets["Ankora_0.1.0_x64-setup.exe"].sha256;
@@ -42,7 +43,7 @@ test("explicit-control contrast section presents five auditable invariants", () 
 test("screenshots have alt text, captions, optional enlargement and native modal", () => { assert(html.includes('aria-labelledby="screenshot-title"')); assert(js.includes("dialog.showModal()")); assert(js.includes("dialog.close()")); assert(html.includes("Actual interface")); for (const image of html.matchAll(/<img\b[^>]*>/g)) assert(/\balt="[^"]*"/.test(image[0]), "Image needs alt text"); });
 test("workflow publishes static output only with bounded permissions", () => { assert(workflow.includes("path: dist")); assert(workflow.includes("needs: verify")); assert(workflow.includes("pages: write")); assert(workflow.includes("id-token: write")); assert(!workflow.includes("secrets.")); });
 test("sources, manual, platform matrix and citation links point to the maintained project", () => { for (const value of ["Olascoaga/Ankora", "assets/Ankora-User-Guide.pdf", "CITATION.cff", "VALIDATION_STATUS.md", "PLATFORM_STATUS.md", "https://orcid.org/0009-0008-5522-7938"]) assert(html.includes(value), value); });
-test("the screenshot/guide manifest binds public source bytes and honest claims", async () => { assert.equal(manifest.assets.length, 9); assert.match(manifest.upstream_commit, /^[a-f0-9]{40}$/); assert.match(manifest.main_branch_commit, /^[a-f0-9]{40}$/); assert(manifest.scientific_boundary.includes("No unfavorable result is omitted")); assert(manifest.distribution.includes("public pre-release v0.1.0-beta.1")); assert.equal(manifest.release.commit, manifest.upstream_commit); });
+test("the screenshot/guide manifest binds public source bytes and honest claims", async () => { assert.equal(manifest.assets.length, 9); assert.match(manifest.upstream_commit, /^[a-f0-9]{40}$/); assert.match(manifest.main_branch_commit, /^[a-f0-9]{40}$/); assert(manifest.scientific_boundary.includes("No unfavorable result is omitted")); assert(manifest.distribution.includes("public pre-release v0.1.0-beta.2")); assert.equal(manifest.release.commit, manifest.upstream_commit); });
 test("real footer widget retains the provider-issued image and statistics link", () => { const embed = `<a href="${counter.statistics_url}"><img src="${counter.image_url}" alt="Flag Counter" border="0"></a>`; assert(html.includes(embed)); assert.equal(counter.counter_id, "0hUE"); assert.equal((html.match(/<img\b[^>]*src="https:/g) || []).length, 1); assert(html.indexOf('id="visitors"') > html.indexOf("<footer")); });
 test("visitor disclosure distinguishes web traffic, estimates and application privacy", () => { for (const text of ["approximate countries", "earlier visits are not included", "not downloads", "Setup checks", "IP address", "temporary IP-derived hash", "advertising and cookies", "receives no scientific data"]) assert(html.includes(text), text); assert(!html.includes("This website contains no analytics")); assert(js.includes('visitorImage.addEventListener("error", visitorUnavailable)')); });
 test("local preview substitutes a labelled fixture without changing deployed HTML", () => { const preview = localPreviewHtml(html, counter.image_url); assert(!preview.includes(`src="${counter.image_url}"`)); assert(preview.includes("data:image/svg+xml,")); assert(decodeURIComponent(preview).includes("Visitor counting disabled")); assert(preview.includes(counter.statistics_url)); assert(html.includes(`src="${counter.image_url}"`)); });
