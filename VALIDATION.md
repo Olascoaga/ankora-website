@@ -1,5 +1,22 @@
 # Website Validation
 
+## Recorded 7-Stage Step-by-Step Walkthrough Animations in Plate I (16 November 2026)
+
+Integrated seven SHA-256-locked, stage-specific step-by-step walkthrough animations (`dist/assets/walkthrough-01-inspect.mp4` through `walkthrough-07-methods.mp4`, `1280×720`, `30 fps` H.264 `yuv420p`, `2.17 MiB` combined across all 7 files) recorded from real `SERPINE1 7AQF/RV2` sessions on unified `main` (`36f1c0e9b11adb579920437d23298472ac948bcf` / `v0.1.0-beta.2`, local filesystem prefixes scrubbed) directly into the 7 tabs of **Plate I** (`#workbench`):
+
+- **1-to-1 workflow mapping (`01 Inspect` .. `07 Methods`):**
+  1. `walkthrough-01-inspect.mp4` (`334,342` B, `d8c544a2…f5ba`): `01 / Structure` 3D `Mol*` inspection and `RV2 A:401` focus.
+  2. `walkthrough-02-prepare.mp4` (`261,591` B, `b94f3aa4…328e`): `02 / Receptor` structural observations, `PROPKA` proposals, and 3D prepared/original overlay.
+  3. `walkthrough-03-define.mp4` (`363,959` B, `b7928144…0639`): `03 / Binding site` `RV2 A:401` `5 Å` box (`8,289.6 Å³`) and 3D orbit.
+  4. `walkthrough-04-docking.mp4` (`491,551` B, `00b539a2…829f`): `04 / Docking & Screen` `AutoDock Vina 1.2.7` execution, `Pose 1`/`Pose 2` toggle, and CLI command/stdout (switching to `Still` / `Captura` shows `gnina-screening.png` on Linux WSLg `GNINA 1.3.3 CUDA`).
+  5. `walkthrough-05-redock.mp4` (`215,879` B, `9f99e809…f475`): `05 / Validation` separate `Sampling` vs `Ranking` verdicts and symmetry-aware in-place heavy-atom RMSD pose table.
+  6. `walkthrough-06-review.mp4` (`290,018` B, `cf4e1664…4d45`): `06 / Results` coupled 3D binding site and 2D `ProLIF 2.2.1` skeletal contact diagram with residue focus.
+  7. `walkthrough-07-methods.mp4` (`317,494` B, `f63e56c0…0e5f`): `07 / Export & Methods` `Export v4` bundle options and zero-gap record-derived `Methods` preview.
+- **Accessibility, progressive enhancement & provenance:** Standard visitors (`prefers-reduced-motion: no-preference`) see silent looping walkthrough playback by default with an unobstructed instrument bezel (`Walkthrough | Still` / `Tutorial | Captura` + modal enlargement); visitors with `prefers-reduced-motion: reduce` or JavaScript disabled default to the byte-verified still captures. Both modes display exact `content id sha256:` provenance in Plate I and full 64-hex hashes in `<dialog>`.
+- **Verification (Node `24.19.0` + headless Microsoft Edge `157.0.4341.60`):**
+  - `npm run check` & `npm test`: **21/21 Node static & provenance tests pass** (`23` deployed files, `6.51 MiB`, `16` SHA-256-locked manifest assets).
+  - `scripts/browser-check.mjs`: **14 viewport/language checks** (`1440×1000` down to `320×640` in EN/ES) and **11 interaction checks** (including real H.264 decoding `1280×720` across all 7 tabs, modal video preview, and EN/ES `Still`/`Walkthrough` toggling) pass with zero horizontal overflow, console errors, failed requests, or live `flagcounter.com` traffic.
+
 ## Minimalist Instrument Monograph Redesign ("Lámina y Tabla", 12 November 2026)
 
 Following a 2-round Ankora Design Council deliberation (`claude-fable-5-2` +

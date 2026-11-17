@@ -22,6 +22,15 @@ const stageFiles = {
   review: "assets/pose-review.jpg",
   methods: "assets/methods.jpg",
 };
+const stageVideos = {
+  inspect: "assets/walkthrough-01-inspect.mp4",
+  prepare: "assets/walkthrough-02-prepare.mp4",
+  define: "assets/walkthrough-03-define.mp4",
+  screen: "assets/walkthrough-04-docking.mp4",
+  redock: "assets/walkthrough-05-redock.mp4",
+  review: "assets/walkthrough-06-review.mp4",
+  methods: "assets/walkthrough-07-methods.mp4",
+};
 const v1DesktopScrollBaseline = 8479;
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ channel: process.env.ANKORA_BROWSER_CHANNEL || "msedge", headless: true });
@@ -196,6 +205,55 @@ try {
   assert.equal(await blocked.locator(".visitor-map figcaption a").getAttribute("href"), counter.statistics_url);
   await blocked.close();
   evidence.interactions.push("visible visitor footer, privacy disclosure and blocked-provider fallback");
+  const motionPage = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: "no-preference" });
+  motionPage.on("pageerror", error => evidence.errors.push(error.message));
+  motionPage.on("response", response => { if (response.status() >= 400) evidence.failed_requests.push(`${response.status()} ${new URL(response.url()).pathname}`); });
+  motionPage.on("request", request => { if (new URL(request.url()).hostname.endsWith("flagcounter.com")) evidence.live_counter_requests.push(request.url()); });
+  assert((await motionPage.goto(base)).ok());
+  assert.equal(await motionPage.locator("#mode-motion").getAttribute("aria-pressed"), "true");
+  assert.equal(await motionPage.locator("#mode-still").getAttribute("aria-pressed"), "false");
+  assert.equal(await motionPage.locator("#workflow-video").isVisible(), true);
+  assert.equal(await motionPage.locator("#workflow-image").isVisible(), false);
+  const motionDesktopScroll = await motionPage.evaluate(() => document.documentElement.scrollHeight);
+  assert(motionDesktopScroll <= 5000, `Expected motion desktop scrollHeight <= 5000px, got ${motionDesktopScroll}px`);
+  for (const stage of ["inspect", "prepare", "define", "screen", "redock", "review", "methods"]) {
+    await motionPage.locator(`#tab-${stage}`).click();
+    await motionPage.waitForFunction(() => {
+      const v = document.querySelector("#workflow-video");
+      return v && !v.hidden && v.readyState >= 2 && v.videoWidth === 1280 && v.videoHeight === 720;
+    });
+    const expectedVideoHash = manifest.assets.find(item => item.file === stageVideos[stage]).sha256;
+    const prov = await motionPage.locator("#stage-provenance").innerText();
+    assert(prov.includes(`sha256:${expectedVideoHash.slice(0, 8)}…${expectedVideoHash.slice(-4)}`), `Stage ${stage} video provenance mismatch: ${prov}`);
+    assert.equal(await motionPage.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Motion gallery ${stage} overflows`);
+  }
+  await motionPage.locator('[data-lightbox-target="workflow-image"]').click();
+  assert.equal(await motionPage.locator("#dialog-video").isVisible(), true);
+  assert.equal(await motionPage.locator("#dialog-image").isVisible(), false);
+  const methodsFullVideoHash = manifest.assets.find(item => item.file === stageVideos.methods).sha256;
+  assert((await motionPage.locator("#dialog-provenance").innerText()).includes(`sha256:${methodsFullVideoHash}`));
+  await motionPage.keyboard.press("Escape");
+  await motionPage.locator("#tab-screen").click();
+  await motionPage.locator("#mode-still").click();
+  assert.equal(await motionPage.locator("#workflow-image").isVisible(), true);
+  assert.equal(await motionPage.locator("#workflow-video").isVisible(), false);
+  assert((await motionPage.locator("#stage-provenance").innerText()).includes("WSLg"));
+  await motionPage.locator("#mode-motion").click();
+  await motionPage.locator("#tab-inspect").click();
+  await motionPage.waitForFunction(() => {
+    const v = document.querySelector("#workflow-video");
+    return v && !v.hidden && v.readyState >= 2;
+  });
+  await motionPage.waitForTimeout(260);
+  await motionPage.screenshot({ path: resolve(output, "hero-desktop-motion.png") });
+  await motionPage.locator('[data-lang="es"]').click();
+  assert.equal(await motionPage.locator("#mode-motion").innerText(), "Tutorial");
+  assert.equal(await motionPage.locator("#mode-still").innerText(), "Captura");
+  await motionPage.setViewportSize({ width: 320, height: 640 });
+  assert.equal(await motionPage.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, "320px motion ES has horizontal overflow");
+  await motionPage.screenshot({ path: resolve(output, "hero-mobile-motion.png") });
+  await motionPage.close();
+  evidence.interactions.push("default walkthrough motion playback across all 7 stages, Still/Walkthrough toggle and modal video preview");
   assert.deepEqual(evidence.errors, []);
   assert.deepEqual(evidence.failed_requests, []);
   assert.deepEqual(evidence.live_counter_requests, []);

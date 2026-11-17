@@ -1,2 +1,3 @@
 # Keep hashed vector assets byte-stable on Windows and the Linux Pages runner.
 dist/assets/*.svg text eol=lf
+dist/assets/*.mp4 binary

@@ -85,8 +85,17 @@
         <div id="workflow-panel" class="workflow-panel" role="tabpanel" aria-labelledby="tab-inspect" tabindex="0">
           <figure class="stage-figure">
             <div class="plate-frame">
-              <img id="workflow-image" src="assets/structure.jpg" width="1920" height="1200" alt="Actual Ankora Structure workspace inspecting the deposited 7AQF structure" fetchpriority="high">
-              <button class="expand-button" type="button" data-lightbox-target="workflow-image" data-caption="stageCaption" aria-label="Enlarge the workflow screenshot" data-label-i18n="enlarge"><svg aria-hidden="true"><use href="#expand"/></svg></button>
+              <div class="plate-viewport">
+                <img id="workflow-image" src="assets/structure.jpg" width="1920" height="1200" alt="Actual Ankora Structure workspace inspecting the deposited 7AQF structure" fetchpriority="high">
+                <video id="workflow-video" src="assets/walkthrough-01-inspect.mp4" width="1280" height="720" muted loop playsinline preload="none" hidden aria-label="Recorded Ankora Structure workspace walkthrough orbiting 7AQF and focusing co-crystallized ligand RV2 A:401"></video>
+              </div>
+              <div class="plate-controls" hidden data-js-plate-modes>
+                <div class="plate-mode-switch" role="group" aria-label="Plate display mode" data-label-i18n="plateModeGroup">
+                  <button type="button" id="mode-motion" data-plate-mode="motion" aria-pressed="false" data-i18n="modeMotion">Walkthrough</button>
+                  <button type="button" id="mode-still" data-plate-mode="still" aria-pressed="true" data-i18n="modeStill">Still</button>
+                </div>
+                <button class="expand-button" type="button" data-lightbox-target="workflow-image" data-caption="stageCaption" aria-label="Enlarge the workflow screenshot" data-label-i18n="enlarge"><svg aria-hidden="true"><use href="#expand"/></svg></button>
+              </div>
             </div>
             <figcaption class="plate-provenance">
               <span id="stage-caption" data-i18n="stageCaption">Actual interface · 7AQF · Structure inspection</span>
@@ -413,6 +422,7 @@
       <button type="button" class="dialog-close" data-i18n="close">Close · Esc</button>
     </div>
     <img id="dialog-image" src="assets/structure.jpg" alt="">
+    <video id="dialog-video" src="assets/walkthrough-01-inspect.mp4" width="1280" height="720" controls loop muted playsinline preload="none" hidden aria-label="Recorded Ankora interface walkthrough"></video>
     <div class="dialog-footer">
       <p id="dialog-caption"></p>
       <p id="dialog-provenance" class="provenance-hash"></p>

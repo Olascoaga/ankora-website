@@ -12,19 +12,19 @@ No domain has been purchased and no beta installer is distributed here.
 ## Content
 
 - English and Spanish, with a shareable `?lang=es` preference.
-- Seven real workflow captures (`01 Inspect`, `02 Prepare`, `03 Define`, `04 Screen`, `05 Redock`, `06 Review`, `07 Methods`) presented in an optical Plate I workbench explorer with a graduated vernier scale, keyboard navigation, native `<dialog>` enlargement, and byte-verified `SHA-256` provenance captions.
+- Seven real workflow stages (`01 Inspect`, `02 Prepare`, `03 Define`, `04 Screen`, `05 Redock`, `06 Review`, `07 Methods`) presented in an optical Plate I workbench explorer with recorded looping step-by-step walkthrough animations (`walkthrough-01-inspect.mp4` through `walkthrough-07-methods.mp4`), a `Walkthrough` / `Still` toggle (`prefers-reduced-motion` defaults to `Still`), a graduated vernier scale, keyboard navigation, native `<dialog>` enlargement, and byte-verified `SHA-256` provenance captions.
 - Explicit scientific contract (`Table 1`, five booktabs invariants) detailing immutable SHA-256 artifacts, selective chemistry, separate scoring families, in-place heavy-atom RMSD (sampling vs ranking) and record-derived `Methods`.
 - Local execution matrix (`Table 2`) across four engines (`AutoDock Vina 1.2.7`, `AutoDock4 4.2.6`, `AutoDock-GPU 1.6`, and Linux `GNINA 1.3.3` with optional 1-click offline CUDA 12.8 pack).
-- Linked frozen validation index (`Table 3`) separating scientific validation records (`7AQF`, `6OCO`, `LIT-PCBA`) from the machine-verified 3-platform / 129-record engineering matrix (`PLATFORM_STATUS.md`), disclosing unfavorable outcomes and the pending bare-metal Linux workstation gate (`Gate D6`).
+- Linked frozen validation index (`Table 3`) separating scientific validation records (`7AQF`, `6OCO`, `LIT-PCBA`) from the machine-verified 3-platform / 130-record engineering matrix (`PLATFORM_STATUS.md`), disclosing unfavorable outcomes and the pending bare-metal Linux workstation gate (`Gate D6`).
 - The updated 34-page / 20-figure illustrated PDF guide (`Ankora-User-Guide.pdf`), repository/citation references (`[1]–[3]`, author ORCID `0009-0008-5522-7938`) and native FAQ.
-- Private-beta / Linux-RC contact by email, not a public download or a simulated signup form.
+- Direct verified offline pre-release downloads (`v0.1.0-beta.2` on GitHub Releases, never inside `dist/`) for Windows 11 x64, Linux x86_64 RC, and the verifiable `7AQF/RV2` demo case.
 - A compact colophon visit counter and country map in the footer, with a visible privacy disclosure.
 - No third-party executable scripts, external fonts, first-party cookies, runtime API or build dependencies.
   The explicitly authorized Flag Counter image separately measures website visits.
 
-All seven workflow captures and the 34-page guide are SHA-256-locked in
-`dist/assets/content-evidence.json` against Ankora's reviewed documentation
-(unified `main` commit `1926281c6bb133c2e25f38627429b0b9de621869`). Six captures use
+All seven walkthrough animations, seven still captures, and the 34-page guide (`16` hashed assets total) are SHA-256-locked in
+`dist/assets/content-evidence.json` against Ankora's reviewed source and documentation
+(unified `main` commit `36f1c0e9b11adb579920437d23298472ac948bcf`). Six captures use
 read-only 7AQF Obsidian views on Windows 11 x64 (`structure.jpg`, `receptor.jpg`,
 `binding-site.jpg`, `redocking.jpg`, `pose-review.jpg`, `methods.jpg`), and stage
 `04 Screen` (`gnina-screening.png`) is a real native Linux WSLg WebDriver capture

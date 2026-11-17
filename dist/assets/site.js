@@ -25,6 +25,9 @@ const spanish = {
   redock: "Redocking",
   review: "Revisar",
   methods: "Métodos",
+  plateModeGroup: "Modo de visualización de la lámina",
+  modeMotion: "Tutorial",
+  modeStill: "Captura",
   enlarge: "Ampliar la captura real",
   inspectTitle: "Empieza por lo que realmente existe.",
   inspectDescription: "Abre coordenadas PDB o mmCIF, o recupera estructuras de RCSB o AlphaFold DB. Inspecciona cadenas, aguas, ligandos y defectos antes de crear derivados.",
@@ -159,6 +162,18 @@ const stages = {
     number: "01",
     sha256: "d61219bb0bbbe51c8842e3e0bdbcb67687e61a2a2a43798f0d73ae6314de8f6a",
     context: { en: "Windows 11 x64", es: "Windows 11 x64" },
+    video: "walkthrough-01-inspect.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "d8c544a2889b23a1c8e7bef504fd44363e07b07f33aab95783b018e2b129f5ba",
+    videoContext: { en: "Windows 11 x64 · 7AQF walkthrough", es: "Windows 11 x64 · tutorial 7AQF" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · 3D structure & RV2 A:401 inspection",
+      es: "Tutorial real · 7AQF · Inspección 3D de la estructura y RV2 A:401",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Structure workspace walkthrough orbiting 7AQF and focusing co-crystallized ligand RV2 A:401",
+      es: "Grabación real del espacio Structure en Ankora orbitando 7AQF y enfocando el ligando cocristalizado RV2 A:401",
+    },
     en: [
       "Start with what is actually there.",
       "Open PDB or mmCIF coordinates, or retrieve structures from RCSB or AlphaFold DB. Inspect chains, waters, ligands and defects before creating derivatives.",
@@ -182,6 +197,18 @@ const stages = {
     number: "02",
     sha256: "b684821fe48b0ec11c778417caa4aa772c689a9f6327a840514496dabdf23b08",
     context: { en: "Windows 11 x64", es: "Windows 11 x64" },
+    video: "walkthrough-02-prepare.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "b94f3aa492b26eab4f56fc6a47da54d0ba117e456caeb44e5ab432f3ab0e328e",
+    videoContext: { en: "Windows 11 x64 · 7AQF walkthrough", es: "Windows 11 x64 · tutorial 7AQF" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · Explicit receptor decisions & 3D overlay",
+      es: "Tutorial real · 7AQF · Decisiones del receptor y superposición 3D",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Receptor workspace walkthrough showing structural observations, PROPKA states and prepared/original 3D overlay",
+      es: "Grabación real del espacio Receptor en Ankora mostrando observaciones estructurales, estados PROPKA y superposición 3D",
+    },
     en: [
       "Chemistry deserves an explicit decision.",
       "Choose chains, waters, terminal OXT policy and per-residue actions explicitly. Review PROPKA protonation proposals and record every preparation stage.",
@@ -205,6 +232,18 @@ const stages = {
     number: "03",
     sha256: "0014f046adab8d677c486c96242f0d5f220a11078afabf9b4e965e774dcc3706",
     context: { en: "Windows 11 x64", es: "Windows 11 x64" },
+    video: "walkthrough-03-define.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "b7928144913bd8af40993664c85f25e09252964a6e8d3fecba036a6c63270639",
+    videoContext: { en: "Windows 11 x64 · 7AQF walkthrough", es: "Windows 11 x64 · tutorial 7AQF" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · Binding-site box from RV2 A:401 (5 Å)",
+      es: "Tutorial real · 7AQF · Caja de búsqueda desde RV2 A:401 (5 Å)",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Binding site walkthrough generating and orbiting an 8,289.6 cubic angstrom search box around RV2 A:401",
+      es: "Grabación real del espacio Binding site en Ankora generando y orbitando la caja de búsqueda alrededor de RV2 A:401",
+    },
     en: [
       "Make the search space visible.",
       "Define a docking box from a co-crystallized ligand, selected residues, full protein, manual coordinates or P2Rank pockets. Translate, resize and lock it.",
@@ -228,6 +267,18 @@ const stages = {
     number: "04",
     sha256: "ae45c1cdf7633d0cb6d551f319775b0104ae783d0b8f7d7c95e2ecece84842e6",
     context: { en: "Linux x86_64 WSLg · GNINA 1.3.3 CUDA", es: "Linux x86_64 WSLg · GNINA 1.3.3 CUDA" },
+    video: "walkthrough-04-docking.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "00b539a2e5165bb1726ec429ba35dc701454198e5ce888efa1361b396b6b829f",
+    videoContext: { en: "Windows 11 x64 · AutoDock Vina 1.2.7", es: "Windows 11 x64 · AutoDock Vina 1.2.7" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · Vina 1.2.7 execution, poses & CLI (Still shows Linux GNINA screening)",
+      es: "Tutorial real · 7AQF · Ejecución Vina 1.2.7, poses y CLI (Captura muestra GNINA en Linux)",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Docking walkthrough running AutoDock Vina 1.2.7 on 7AQF/RV2, toggling poses in 3D and inspecting the reproducible CLI command",
+      es: "Grabación real del espacio Docking en Ankora ejecutando AutoDock Vina 1.2.7 sobre 7AQF/RV2, alternando poses en 3D y mostrando el comando CLI",
+    },
     en: [
       "Screen without merging score scales.",
       "Run multi-ligand campaigns with Vina, AutoDock4, AutoDock-GPU or Linux GNINA 1.3.3. Inspect CNNscore, CNNaffinity (pK), CNN_VS and kcal/mol in separate columns.",
@@ -251,6 +302,18 @@ const stages = {
     number: "05",
     sha256: "e2d039f96ff5a7b9822ecddcf908bc87d8064f137426f81366e4002f4006224d",
     context: { en: "Windows 11 x64", es: "Windows 11 x64" },
+    video: "walkthrough-05-redock.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "9f99e809b30729de249877d55fde23d16e6f3568b0cd54c795e208bada45f475",
+    videoContext: { en: "Windows 11 x64 · 7AQF walkthrough", es: "Windows 11 x64 · tutorial 7AQF" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · Separate Sampling vs Ranking RMSD verdicts",
+      es: "Tutorial real · 7AQF · Veredictos separados de Sampling y Ranking RMSD",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Validation walkthrough inspecting separate Sampling and Ranking verdicts and in-place heavy-atom RMSD per pose",
+      es: "Grabación real del espacio Validation en Ankora inspeccionando veredictos separados de Sampling y Ranking y RMSD in-place por pose",
+    },
     en: [
       "Judge sampling separately from ranking.",
       "Evaluate single-ligand runs against an immutable crystallographic reference using symmetry-aware in-place heavy-atom RMSD — never pose superposition.",
@@ -274,6 +337,18 @@ const stages = {
     number: "06",
     sha256: "83a18ac0ff45fa70817013302269512c82e5569ad1bf08493cea8883fc167317",
     context: { en: "Windows 11 x64", es: "Windows 11 x64" },
+    video: "walkthrough-06-review.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "cf4e16642f343a515162941a428f6d5db05ec76dab809870df8e2d591cf24d45",
+    videoContext: { en: "Windows 11 x64 · ProLIF 2.2.1", es: "Windows 11 x64 · ProLIF 2.2.1" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · Coupled 3D pose & 2D ProLIF 2.2.1 contacts",
+      es: "Tutorial real · 7AQF · Pose 3D y contactos 2D ProLIF 2.2.1 vinculados",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Results walkthrough linking the 3D pocket pose with the 2D ProLIF 2.2.1 skeletal interaction diagram and residue focus",
+      es: "Grabación real del espacio Results en Ankora vinculando la pose 3D del bolsillo con el diagrama 2D de interacciones ProLIF 2.2.1",
+    },
     en: [
       "Read geometry, not just a score.",
       "Open an exact preserved pose from any engine. Link the 3D receptor to a skeletal 2D diagram and contact table, then export figures and hash-verified PDB complexes.",
@@ -297,6 +372,18 @@ const stages = {
     number: "07",
     sha256: "4c21d9cd7d82d8455bcba3523c814628fa3a1ebd9ac10a5535111694a4b03026",
     context: { en: "Windows 11 x64", es: "Windows 11 x64" },
+    video: "walkthrough-07-methods.mp4",
+    videoSize: [1280, 720],
+    videoSha256: "f63e56c09063246c1eff482c7de6e403b2f72246b2467953344829185b000e5f",
+    videoContext: { en: "Windows 11 x64 · Export v4 & Methods", es: "Windows 11 x64 · Export v4 y Methods" },
+    videoCaption: {
+      en: "Walkthrough · 7AQF · Export v4 bundle & record-derived Methods",
+      es: "Tutorial real · 7AQF · Paquete Export v4 y sección Methods",
+    },
+    videoAlt: {
+      en: "Recorded Ankora Export walkthrough reviewing Export v4 bundle options and scrolling the zero-gap record-derived Methods section",
+      es: "Grabación real del espacio Export en Ankora revisando opciones de Export v4 y la sección Methods derivada de registros",
+    },
     en: [
       "Export methods derived from real records.",
       "Generate structured Methods prose and Crossref-verified citations directly from immutable SHA-256 artifacts, exact box coordinates and recorded tool versions.",
@@ -317,27 +404,47 @@ const stages = {
 };
 
 const stageNames = Object.keys(stages);
+const reducedMotionQuery = matchMedia("(prefers-reduced-motion: reduce)");
 let language = new URL(location.href).searchParams.get("lang") === "es" ? "es" : "en";
 let currentStage = "inspect";
+let plateMode = reducedMotionQuery.matches ? "still" : "motion";
 const translate = key => (language === "es" ? spanish[key] : english[key]) ?? english[key] ?? key;
 const dialog = document.querySelector("#screenshot-dialog");
+const dialogImage = document.querySelector("#dialog-image");
+const dialogVideo = document.querySelector("#dialog-video");
 const tablist = document.querySelector(".workflow-tabs");
 let dialogCaptionKey = "stageCaption";
+let dialogMode = plateMode;
 
-function shortProvenance(stage) {
-  const shortHash = `${stage.sha256.slice(0, 8)}…${stage.sha256.slice(-4)}`;
-  return `${stage.image} · ${stage.context[language]} · content id sha256:${shortHash}`;
+function shortProvenance(stage, mode = plateMode) {
+  const hash = mode === "motion" ? stage.videoSha256 : stage.sha256;
+  const file = mode === "motion" ? stage.video : stage.image;
+  const ctx = mode === "motion" ? stage.videoContext[language] : stage.context[language];
+  const shortHash = `${hash.slice(0, 8)}…${hash.slice(-4)}`;
+  return `${file} · ${ctx} · content id sha256:${shortHash}`;
 }
 
-function fullProvenance(stage) {
+function fullProvenance(stage, mode = plateMode) {
   const note = language === "es"
     ? "identifica los bytes del archivo; no acredita validez química"
     : "identifies file bytes; does not establish chemical validity";
-  return `${stage.image} (${stage.size[0]}×${stage.size[1]}) · sha256:${stage.sha256} — ${note}`;
+  const file = mode === "motion" ? stage.video : stage.image;
+  const dims = mode === "motion" ? stage.videoSize : stage.size;
+  const hash = mode === "motion" ? stage.videoSha256 : stage.sha256;
+  return `${file} (${dims[0]}×${dims[1]}) · sha256:${hash} — ${note}`;
 }
 
-function caption(key) {
-  return key === "stageCaption" ? stages[currentStage][language][3] : translate(key);
+function caption(key, mode = plateMode) {
+  if (key === "stageCaption") {
+    return mode === "motion" ? stages[currentStage].videoCaption[language] : stages[currentStage][language][3];
+  }
+  return translate(key);
+}
+
+function syncPlateModeButtons() {
+  for (const btn of document.querySelectorAll("[data-plate-mode]")) {
+    btn.setAttribute("aria-pressed", String(btn.dataset.plateMode === plateMode));
+  }
 }
 
 function showStage(name, focus = false) {
@@ -363,11 +470,38 @@ function showStage(name, focus = false) {
   document.querySelector("#stage-caveat").textContent = content[5];
 
   const image = document.querySelector("#workflow-image");
+  const video = document.querySelector("#workflow-video");
   image.src = `assets/${stage.image}`;
   image.alt = content[4];
   [image.width, image.height] = stage.size;
-  document.querySelector("#stage-caption").textContent = content[3];
-  document.querySelector("#stage-provenance").textContent = shortProvenance(stage);
+  video.setAttribute("aria-label", stage.videoAlt[language]);
+  [video.width, video.height] = stage.videoSize;
+
+  syncPlateModeButtons();
+  if (plateMode === "motion") {
+    image.hidden = true;
+    video.hidden = false;
+    const nextVideoSrc = `assets/${stage.video}`;
+    if (video.dataset.activeSrc !== nextVideoSrc) {
+      video.src = nextVideoSrc;
+      video.dataset.activeSrc = nextVideoSrc;
+      video.load();
+    }
+    const playAttempt = video.play();
+    if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+  } else {
+    video.pause();
+    video.hidden = true;
+    image.hidden = false;
+  }
+
+  document.querySelector("#stage-caption").textContent = caption("stageCaption", plateMode);
+  document.querySelector("#stage-provenance").textContent = shortProvenance(stage, plateMode);
+}
+
+function setPlateMode(next) {
+  plateMode = next === "still" ? "still" : "motion";
+  showStage(currentStage);
 }
 
 function setLanguage(next) {
@@ -384,8 +518,11 @@ function setLanguage(next) {
   document.title = next === "es" ? "Ankora — Docking molecular, con el científico al mando" : "Ankora — Molecular docking, with the scientist in control";
   showStage(currentStage);
   if (dialog.open) {
-    document.querySelector("#dialog-caption").textContent = caption(dialogCaptionKey);
-    document.querySelector("#dialog-provenance").textContent = fullProvenance(stages[currentStage]);
+    const stage = stages[currentStage];
+    dialogVideo.setAttribute("aria-label", stage.videoAlt[language]);
+    dialogImage.alt = stage[language][4];
+    document.querySelector("#dialog-caption").textContent = caption(dialogCaptionKey, dialogMode);
+    document.querySelector("#dialog-provenance").textContent = fullProvenance(stage, dialogMode);
   }
 }
 
@@ -416,6 +553,11 @@ for (const tab of document.querySelectorAll("[data-stage]")) {
   });
 }
 
+for (const button of document.querySelectorAll("[data-plate-mode]")) {
+  button.addEventListener("click", () => setPlateMode(button.dataset.plateMode));
+}
+reducedMotionQuery.addEventListener("change", event => setPlateMode(event.matches ? "still" : "motion"));
+
 const menu = document.querySelector("[data-js-menu]");
 const header = document.querySelector(".site-header");
 function closeMenu() {
@@ -436,16 +578,35 @@ document.addEventListener("keydown", event => {
 matchMedia("(min-width: 821px)").addEventListener("change", closeMenu);
 
 for (const button of document.querySelectorAll("[data-lightbox-target]")) button.addEventListener("click", () => {
-  const source = document.getElementById(button.dataset.lightboxTarget);
-  const image = document.querySelector("#dialog-image");
-  image.src = source.currentSrc || source.src;
-  image.alt = source.alt;
+  const stage = stages[currentStage];
+  dialogMode = plateMode;
   dialogCaptionKey = button.dataset.caption;
-  document.querySelector("#dialog-caption").textContent = caption(dialogCaptionKey);
-  document.querySelector("#dialog-provenance").textContent = fullProvenance(stages[currentStage]);
+  if (dialogMode === "motion") {
+    dialogImage.hidden = true;
+    dialogVideo.hidden = false;
+    const nextVideoSrc = `assets/${stage.video}`;
+    if (dialogVideo.dataset.activeSrc !== nextVideoSrc) {
+      dialogVideo.src = nextVideoSrc;
+      dialogVideo.dataset.activeSrc = nextVideoSrc;
+      dialogVideo.load();
+    }
+    dialogVideo.setAttribute("aria-label", stage.videoAlt[language]);
+    const playAttempt = dialogVideo.play();
+    if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
+  } else {
+    dialogVideo.pause();
+    dialogVideo.hidden = true;
+    dialogImage.hidden = false;
+    const source = document.getElementById(button.dataset.lightboxTarget);
+    dialogImage.src = source.currentSrc || source.src;
+    dialogImage.alt = source.alt;
+  }
+  document.querySelector("#dialog-caption").textContent = caption(dialogCaptionKey, dialogMode);
+  document.querySelector("#dialog-provenance").textContent = fullProvenance(stage, dialogMode);
   dialog.showModal();
 });
 
+dialog.addEventListener("close", () => dialogVideo.pause());
 document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", event => {
   if (event.target !== dialog) return;
@@ -453,7 +614,7 @@ dialog.addEventListener("click", event => {
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
 });
 
-for (const node of document.querySelectorAll("[data-js-menu], [data-js-languages]")) node.hidden = false;
+for (const node of document.querySelectorAll("[data-js-menu], [data-js-languages], [data-js-plate-modes]")) node.hidden = false;
 
 const visitorImage = document.querySelector("#visitor-widget img");
 function visitorUnavailable() {

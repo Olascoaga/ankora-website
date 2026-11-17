@@ -114,6 +114,55 @@
       "upstream": "docs/Ankora-User-Guide.pdf",
       "sha256": "1f791e1a1c9b80a888773de4c841f2698052d5fe11232a63f2cfe6230483e3c3",
       "size_bytes": 3119183
+    },
+    {
+      "file": "assets/walkthrough-01-inspect.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI",
+      "origin": "recorded real 7AQF/RV2 Structure workspace walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (Mol* 3D inspection and RV2 A:401 focus; local filesystem prefixes scrubbed)",
+      "sha256": "d8c544a2889b23a1c8e7bef504fd44363e07b07f33aab95783b018e2b129f5ba",
+      "size_bytes": 334342
+    },
+    {
+      "file": "assets/walkthrough-02-prepare.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI",
+      "origin": "recorded real 7AQF Receptor preparation walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (26 structural observations, 97 PROPKA states, and prepared/original 3D overlay)",
+      "sha256": "b94f3aa492b26eab4f56fc6a47da54d0ba117e456caeb44e5ab432f3ab0e328e",
+      "size_bytes": 261591
+    },
+    {
+      "file": "assets/walkthrough-03-define.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI",
+      "origin": "recorded real 7AQF/RV2 Binding-site box walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (co-crystallized RV2 A:401 box with 5 Å padding, 8,289.6 Å³ volume, and 3D orbit)",
+      "sha256": "b7928144913bd8af40993664c85f25e09252964a6e8d3fecba036a6c63270639",
+      "size_bytes": 363959
+    },
+    {
+      "file": "assets/walkthrough-04-docking.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI · AutoDock Vina 1.2.7",
+      "origin": "recorded real 7AQF/RV2 AutoDock Vina 1.2.7 execution walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (explicit confirmation, Pose 1/Pose 2 3D toggle, and reproducible CLI command/stdout)",
+      "sha256": "00b539a2e5165bb1726ec429ba35dc701454198e5ce888efa1361b396b6b829f",
+      "size_bytes": 491551
+    },
+    {
+      "file": "assets/walkthrough-05-redock.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI",
+      "origin": "recorded real 7AQF/RV2 Validation walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (separate Sampling and Ranking verdicts with symmetry-aware in-place heavy-atom RMSD pose table)",
+      "sha256": "9f99e809b30729de249877d55fde23d16e6f3568b0cd54c795e208bada45f475",
+      "size_bytes": 215879
+    },
+    {
+      "file": "assets/walkthrough-06-review.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI · ProLIF 2.2.1",
+      "origin": "recorded real 7AQF/RV2 Results interaction walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (linked 3D binding site and ProLIF 2.2.1 2D skeletal contact diagram with residue focus)",
+      "sha256": "cf4e16642f343a515162941a428f6d5db05ec76dab809870df8e2d591cf24d45",
+      "size_bytes": 290018
+    },
+    {
+      "file": "assets/walkthrough-07-methods.mp4",
+      "platform": "Windows 11 x64 · Obsidian production UI",
+      "origin": "recorded real 7AQF/RV2 Export v4 and record-derived Methods walkthrough on commit 36f1c0e9b11adb579920437d23298472ac948bcf (campaign bundle options and zero-gap Methods preview)",
+      "sha256": "f63e56c09063246c1eff482c7de6e403b2f72246b2467953344829185b000e5f",
+      "size_bytes": 317494
     }
   ],
   "capability_sources": [
