@@ -3,11 +3,13 @@
   "reviewed_on": "2026-11-25",
   "upstream_repository": "https://github.com/Olascoaga/Ankora",
   "upstream_commit": "36f1c0e9b11adb579920437d23298472ac948bcf",
-  "main_branch_commit": "36f1c0e9b11adb579920437d23298472ac948bcf",
+  "main_branch_commit": "7bdaaff9b05d81e5a96a537c2de55e39dd7e6fd0",
   "v02_development_branch": {
-    "branch": "codex/v0.2-dev",
-    "commit": "28797a91ec84ccb925c40a539b606f81a46b0b1e",
-    "milestone": "M0-M6.5 Dual-OS verified + multi-target LIT-PCBA (3 targets, N=780) & induced-fit M1 FlexRes (1PRG/1US0) ADR-031 external benchmarks vs DockM8 v1.1.1 and AMDockVS v0.14.1 + post-benchmark offline installer rebuild (<= 815 KiB ADR-031 delta across .exe/.deb/.tar.zst), Linux D4 clean-room smoke & M7 DEFER",
+    "branch": "main",
+    "merged_from": "codex/v0.2-dev",
+    "pull_request": "https://github.com/Olascoaga/Ankora/pull/2",
+    "commit": "7bdaaff9b05d81e5a96a537c2de55e39dd7e6fd0",
+    "milestone": "PR #2 merged to main (dual-OS CI green): M0-M6.5 verified + multi-target LIT-PCBA (3 targets, N=780) & induced-fit M1 FlexRes (1PRG/1US0) ADR-031 external benchmarks vs DockM8 v1.1.1 and AMDockVS v0.14.1 + post-benchmark offline installer rebuild (<= 815 KiB ADR-031 delta across .exe/.deb/.tar.zst), Linux D4 clean-room smoke & M7 DEFER",
     "validation_record": "docs/validation/V02_EXTERNAL_BENCHMARK_VS_AMDOCKVS.md",
     "indexed_validation_records": 146,
     "packaged_in_v01_installers": false
