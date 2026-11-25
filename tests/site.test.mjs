@@ -99,12 +99,13 @@ test("all seven recorded walkthrough videos have byte-verified SHA-256 provenanc
   assert(js.includes('matchMedia("(prefers-reduced-motion: reduce)")'));
 });
 test("v0.2 M0-M6.5 branch milestones are honestly separated from published v0.1.0-beta.2 installers", () => {
-  assert(html.includes("https://github.com/Olascoaga/Ankora/blob/codex/v0.2-dev/docs/validation/V02_OFFLINE_INSTALLER_ATTESTATION_POST_BENCHMARK.md"));
+  assert(html.includes("https://github.com/Olascoaga/Ankora/blob/codex/v0.2-dev/docs/validation/V02_EXTERNAL_BENCHMARK_VS_AMDOCKVS.md"));
   assert(html.includes("https://github.com/Olascoaga/Ankora/tree/codex/v0.2-dev"));
-  assert(html.includes("145 records"));
+  assert(html.includes("146 records"));
+  assert(html.includes("AMDockVS v0.14.1"));
   assert(html.includes("not yet in v0.1.0-beta.2 installers"));
   assert.equal(manifest.v02_development_branch.branch, "codex/v0.2-dev");
-  assert.equal(manifest.v02_development_branch.indexed_validation_records, 145);
+  assert.equal(manifest.v02_development_branch.indexed_validation_records, 146);
   assert.match(manifest.v02_development_branch.commit, /^[a-f0-9]{40}$/);
   assert.equal(manifest.v02_development_branch.packaged_in_v01_installers, false);
 });
